@@ -1,0 +1,172 @@
+{
+  "profile": {
+    "name": "Abdulrahman Alsaadi",
+    "role": "Mechatronics Engineer",
+    "hello": "Hey, I'm a",
+    "pitch": "Robotic systems from CAD to flight test.",
+    "sub": "I design, simulate, build and test robots: mechanical design and FEA, embedded control, ROS 2, and vision-guided autonomy.",
+    "aboutTitle": "The machine and the code that drives it",
+    "summary": "Mechatronics engineer and CSWP-certified mechanical designer. I take robotic systems from CAD, analysis and simulation through prototyping, assembly and physical testing, covering mechanical design, embedded control, software integration and iterative redesign.",
+    "location": "Jeddah, Saudi Arabia",
+    "email": "abdulrahman.sa.eng@gmail.com",
+    "github": "https://github.com/Abdulrahman-Alsaadi",
+    "linkedin": "https://linkedin.com/in/abdulrahmanalsaadi",
+    "pillars": ["Robotics & ROS 2", "Mechanical Design & FEA", "Autonomy & Vision", "Embedded Control"],
+    "stack": ["ROS 2", "OpenCV", "MAVLink", "SolidWorks", "ANSYS", "Python", "C++", "ESP32"],
+    "cv": [
+      { "label": "Robotics CV", "file": "cv/Abdulrahman_Alsaadi_Robotics_CV.pdf" },
+      { "label": "Mechanical Design CV", "file": "cv/Abdulrahman_Alsaadi_Mechanical_Design_CV.pdf" }
+    ]
+  },
+  "skills": [
+    { "group": "Robotics & Software", "items": ["ROS 2 Humble", "Gazebo", "RViz", "URDF/Xacro", "ros2_control", "C++", "Python", "Linux (Ubuntu)", "Git"] },
+    { "group": "Autonomy & Computer Vision", "items": ["OpenCV", "MAVLink", "pymavlink", "ArduPilot SITL", "MQTT"] },
+    { "group": "Embedded & Hardware", "items": ["Raspberry Pi 5", "ESP32", "Arduino", "Cube Orange", "UART", "PWM", "Stepper/servo/BLDC motors", "Belt/gear transmissions"] },
+    { "group": "Mechanical Design & Analysis", "items": ["SolidWorks", "ANSYS", "FEA", "Topology optimization", "DFM", "Dimensional tolerancing", "Bearing fits", "Manufacturing drawings", "3D printing"] }
+  ],
+  "experience": [
+    {
+      "company": "Smart Methods",
+      "role": "Full Stack Robotics Engineering Intern",
+      "place": "Jeddah, Saudi Arabia",
+      "period": "Jul 2025 – Aug 2025",
+      "points": [
+        "Independently delivered 13 engineer-evaluated robotics projects across mechanical design, analysis, embedded control, computer vision, AI and robot interfaces; published the repositories on GitHub.",
+        "Redesigned a robotic-arm joint bracket with an integrated bearing housing and ran SolidWorks Simulation FEA (ABS, 100 N per edge).",
+        "Calculated static payload torque for a 3-DOF arm, selected servos for a 1 kg payload, and designed a complete 5-DOF arm assembly in SolidWorks.",
+        "Programmed Arduino/ESP32 pick-and-place applications and built Python/OpenCV and database-backed robot-control interfaces."
+      ]
+    }
+  ],
+  "education": [
+    { "degree": "B.Sc. Mechatronics Engineering", "school": "Karabük University, Türkiye", "period": "Jun 2021 – Jun 2026" }
+  ],
+  "certifications": [
+    { "title": "Certified SOLIDWORKS Design Professional, Mechanical Design (CSWP)", "issuer": "Dassault Systèmes", "date": "Aug 2026" },
+    { "title": "Certified SOLIDWORKS Associate, Mechanical Design (CSWA)", "issuer": "Dassault Systèmes", "date": "May 2026" },
+    { "title": "Engineer Membership (Active)", "issuer": "Saudi Council of Engineers", "date": "" },
+    { "title": "ROS 2 Fundamentals", "issuer": "Karabük University", "date": "May 2025" }
+  ],
+  "languages": [
+    { "name": "Arabic", "level": "Native" },
+    { "name": "English", "level": "Upper-intermediate" },
+    { "name": "Turkish", "level": "Intermediate" }
+  ],
+  "projects": [
+    {
+      "id": "wd-drone-teknofest-2026",
+      "title": "WD Drone: TEKNOFEST 2026",
+      "tagline": "Autonomous rotary-wing UAV for the TEKNOFEST rotary-wing category",
+      "category": "UAVs & Drones",
+      "year": "2026",
+      "timeline": "Feb – Jul 2026, Karabük",
+      "role": "Founding team member, simulation and systems integration (team of six)",
+      "thumbnail": "",
+      "gallery": [],
+      "tags": ["ArduPilot SITL", "Gazebo", "MAVLink", "OpenCV", "Raspberry Pi 5", "Cube Orange", "SolidWorks FEA"],
+      "summary": "A rotary-wing UAV built by a six-member team across mechanical, avionics, software and computer vision. I built the Gazebo/ArduPilot SITL environment, integrated the companion computer and flight controller, developed the target detection, and contributed to mechanical design and structural FEA.",
+      "features": [
+        "Custom Gazebo/ArduPilot SITL for waypoint survey, target approach, payload delivery and RTL",
+        "Raspberry Pi 5, Camera Module 3 and Cube Orange integrated through MAVLink/pymavlink",
+        "OpenCV colour and geometric target detection at about 30 FPS",
+        "Velocity corrections generated from target-centre offsets",
+        "Autonomous waypoint flight with AUTO/GUIDED/RTL transitions"
+      ],
+      "architecture": "The Pi 5 captures frames from the Camera Module 3 and runs OpenCV detection. Target-centre offsets become velocity corrections that pymavlink sends to the Cube Orange flight controller. Every mission stage was rehearsed in SITL before physical flight.",
+      "results": "Five flight-test sessions at about 3–10 m altitude covered autonomous flight, target detection and payload release. Structural FEA on the 5 mm carbon-fibre arm plates and 3 mm central-body plates under an 8 kg static load gave 24.9 MPa peak von Mises stress and a calculated factor of safety of 31.1.",
+      "metrics": [
+        { "label": "Detection rate", "value": "~30 FPS" },
+        { "label": "Factor of safety", "value": "31.1" },
+        { "label": "Unloaded hover", "value": "12 min" },
+        { "label": "Hover with 1 kg payload", "value": "7 min" }
+      ],
+      "githubUrl": "https://github.com/Abdulrahman-Alsaadi",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "scara-robotic-arm",
+      "title": "3-DOF SCARA Robotic Arm",
+      "tagline": "Designed, printed, programmed and tested as a graduation project",
+      "category": "Robotic Arms & Manipulation",
+      "year": "2026",
+      "timeline": "Apr – Jun 2026, Karabük",
+      "role": "Mechatronics and robotics engineer (sole designer)",
+      "thumbnail": "",
+      "gallery": [],
+      "tags": ["SolidWorks", "FEA", "Topology optimization", "ESP32", "C++", "MQTT", "NEMA 17"],
+      "summary": "A 3-DOF SCARA arm with 492.5 mm reach, a vertical Z-axis and a servo gripper. I handled mechanical design, manufacturing, electronics, firmware and system integration on my own.",
+      "features": [
+        "Two-stage GT2 belt/gear transmission with NEMA 17 steppers and DRV8825 drivers",
+        "DFM applied to print orientation, supports, tolerances and bearing fits",
+        "ESP32 firmware in C++: forward and inverse kinematics, homing, motion limits, gripper control",
+        "Engineering drawings, BOM and manufacturing-ready CAD",
+        "Integrated with a mobile robot and conveyor over a three-node MQTT network"
+      ],
+      "architecture": "Joint torque calculations guided motor selection. Links were topology-optimized, printed in PLA+ and post-processed with sanding, drilling, reaming, heat-set inserts and tapping. An ESP32 runs the kinematics and stepper control and talks to the mobile robot and conveyor over MQTT.",
+      "results": "Topology optimization cut link mass by about 80% while keeping the mounting and load-bearing regions. The revised links were manufactured and tested, the arm held a 100 g payload at full extension, and the three-node system demonstrated autonomous box transfer and shelving.",
+      "metrics": [
+        { "label": "Reach", "value": "492.5 mm" },
+        { "label": "Link mass reduction", "value": "~80%" },
+        { "label": "Payload at full extension", "value": "100 g" }
+      ],
+      "githubUrl": "https://github.com/Abdulrahman-Alsaadi",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "mycobot-280-ros2-simulation",
+      "title": "myCobot 280 ROS 2 Simulation",
+      "tagline": "6-DOF manipulator in Gazebo with ros2_control",
+      "category": "Robotic Arms & Manipulation",
+      "year": "Personal",
+      "timeline": "Personal project",
+      "role": "Solo developer",
+      "thumbnail": "",
+      "gallery": [],
+      "tags": ["ROS 2 Humble", "Gazebo", "RViz", "URDF/Xacro", "ros2_control"],
+      "summary": "A 6-DOF myCobot 280 configured and simulated with ROS 2 Humble on Ubuntu 22.04, using URDF/Xacro, RViz, Gazebo and ros2_control.",
+      "features": [
+        "ROS 2 topics, publishers/subscribers, parameters, actions and launch files",
+        "Manipulator motion commanded through FollowJointTrajectory",
+        "joint_state_publisher and robot_state_publisher setup"
+      ],
+      "architecture": "",
+      "results": "",
+      "metrics": [],
+      "githubUrl": "https://github.com/Abdulrahman-Alsaadi",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "smart-methods-robotics-projects",
+      "title": "Smart Methods Robotics Projects",
+      "tagline": "Thirteen engineer-evaluated projects across mechanics, embedded control and vision",
+      "category": "Mechanical Design & FEA",
+      "year": "2025",
+      "timeline": "Jul – Aug 2025, Jeddah",
+      "role": "Full stack robotics engineering intern",
+      "thumbnail": "",
+      "gallery": [],
+      "tags": ["SolidWorks", "FEA", "Arduino", "ESP32", "Python", "OpenCV"],
+      "summary": "During a two-month internship I independently delivered 13 engineer-evaluated projects and published the repositories on GitHub. The highlights here are the mechanical design and analysis work.",
+      "features": [
+        "Joint bracket redesigned with an integrated bearing housing to remove unnecessary material",
+        "SolidWorks Simulation FEA in ABS with 100 N loading per edge",
+        "Static payload torque calculations and servo selection for a 3-DOF arm carrying 1 kg",
+        "Complete 5-DOF arm assembly in SolidWorks: links, joints, motor mounts and overall architecture",
+        "Arduino/ESP32 pick-and-place and Python/OpenCV robot-control interfaces"
+      ],
+      "architecture": "",
+      "results": "",
+      "metrics": [
+        { "label": "Projects delivered", "value": "13" },
+        { "label": "Arm assembly", "value": "5-DOF" },
+        { "label": "Design payload", "value": "1 kg" }
+      ],
+      "githubUrl": "https://github.com/Abdulrahman-Alsaadi",
+      "cadUrl": "",
+      "videoUrl": ""
+    }
+  ]
+}

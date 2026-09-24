@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Admin | Portfolio</title>
+<meta name="robots" content="noindex">
+<style>
+:root{color-scheme:dark;--em:#10B981;--bd:rgba(16,185,129,.2);--mu:#9CA3AF}
+*{box-sizing:border-box}
+body{margin:0;background:#0B0E0D;color:#F9FAFB;font:15px/1.5 system-ui,sans-serif}
+header{position:sticky;top:0;z-index:5;background:rgba(11,14,13,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd);padding:14px 24px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+header b{font-size:18px;margin-right:auto}
+main{max-width:940px;margin:0 auto;padding:24px}
+button,.btn{font:600 13px system-ui;background:var(--em);color:#04150d;border:0;border-radius:99px;padding:8px 16px;cursor:pointer;text-decoration:none}
+button.s,.btn.s{background:none;color:#F9FAFB;border:1px solid var(--bd)}
+button.d{background:none;color:#f87171;border:1px solid rgba(248,113,113,.4)}
+button:hover,.btn:hover{filter:brightness(1.15)}
+:focus-visible{outline:2px solid var(--em);outline-offset:2px}
+#tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+#tabs button{background:none;color:var(--mu);border:1px solid var(--bd)}
+#tabs button.on{background:var(--em);color:#04150d}
+#st{color:var(--mu);font-size:13px}#st.err{color:#f87171}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.f{margin-bottom:14px}.f.w{grid-column:1/-1}
+label{display:block;color:var(--mu);font-size:13px;margin-bottom:4px}
+input,textarea{width:100%;background:#111815;color:#F9FAFB;border:1px solid var(--bd);border-radius:10px;padding:9px 11px;font:inherit}
+details{border:1px solid var(--bd);border-radius:14px;padding:12px 16px;margin-bottom:10px;background:rgba(255,255,255,.02)}
+summary{cursor:pointer;font-weight:600}
+details[open]>summary{margin-bottom:14px}
+.ar{display:flex;gap:8px;margin-top:8px}
+.ib{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.ib input{flex:1;min-width:200px}
+.pv{width:96px;height:64px;object-fit:cover;border-radius:8px;border:1px solid var(--bd)}
+.gl{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.gl div{position:relative}.gl button{position:absolute;top:4px;right:4px;padding:2px 8px}
+.gl img{width:120px;height:84px;object-fit:cover;border-radius:10px;border:1px solid var(--bd)}
+.help{color:var(--mu);font-size:13px;margin:0 0 20px}
+</style></head><body>
+<header><b>Portfolio admin</b><span id="st"></span>
+<a class="btn s" href="index.html">Back to site</a><button class="s" id="pv">Preview draft</button>
+<button class="s" id="im">Import</button><button class="d" id="rs">Discard draft</button><button id="dl">Download content.json</button></header>
+<main><p class="help">Edit any section, then click <b>Download content.json</b> and replace that file in your GitHub repo. Uploaded images are resized and stored inside the file. Changes go live only after you commit. Drafts stay in this browser.</p>
+<div id="tabs"></div><div id="ed"></div></main>
+<script>
+const TABS={profile:'Profile',skills:'Skills',experience:'Experience',education:'Education',certifications:'Certifications',languages:'Languages',projects:'Projects'};
+const TPL={metrics:{label:'',value:''},skills:{group:'',items:[]},experience:{company:'',role:'',place:'',period:'',points:[]},education:{degree:'',school:'',period:''},certifications:{title:'',issuer:'',date:''},languages:{name:'',level:''},cv:{label:'',file:''},
+projects:{id:'',title:'',tagline:'',category:'',year:'',timeline:'',role:'',thumbnail:'',gallery:[],tags:[],summary:'',features:[],architecture:'',results:'',metrics:[],githubUrl:'',cadUrl:'',videoUrl:''}};
+let S, tab = 'profile', tm;
+const $ = s => document.querySelector(s);
+const h = (t, p = {}, ...k) => { const e = document.createElement(t); Object.assign(e, p); e.append(...k.flat()); return e };
+const btn = (t, fn, c = 's') => h('button', { textContent: t, onclick: fn, className: c, type: 'button' });
+const lab = k => k.replace(/([A-Z])/g, ' $1').replace(/^./, c => c.toUpperCase());
+const title = o => o.title || o.company || o.degree || o.name || o.group || o.label || o.file || 'New item';
+const lines = t => t.split('\n').map(s => s.trim()).filter(Boolean);
+const slug = t => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+function status(t, err) { const s = $('#st'); s.textContent = t; s.className = err ? 'err' : '' }
+function save() { try { localStorage.setItem('draft', JSON.stringify(S)); status('Draft saved in this browser') } catch (e) { status('Draft too large for browser storage. Download now.', 1) } }
+const sv = () => { clearTimeout(tm); tm = setTimeout(save, 400) };
+
+function shrink(f) { return new Promise(r => { const im = new Image(); im.onload = () => { const s = Math.min(1, 1600 / Math.max(im.width, im.height)), c = h('canvas', { width: im.width * s | 0, height: im.height * s | 0 }); c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); r(c.toDataURL('image/jpeg', .8)) }; im.src = URL.createObjectURL(f) }) }
+function pick(multi, cb) { const i = h('input', { type: 'file', accept: 'image/*', multiple: multi }); i.onchange = async () => { for (const f of i.files) cb(await shrink(f)) }; i.click() }
+
+function imgField(o, k, w) {
+  const draw = () => { w.querySelector('.ib')?.remove(); const v = o[k] || '', emb = v.startsWith('data:');
+    w.append(h('div', { className: 'ib' }, v ? h('img', { src: v, className: 'pv', alt: '' }) : '',
+      h('input', { value: emb ? '(uploaded image)' : v, disabled: emb, placeholder: 'images/projects/name.jpg, or upload', oninput: e => { o[k] = e.target.value; sv() } }),
+      btn('Upload', () => pick(false, d => { o[k] = d; sv(); draw() })), v ? btn('Remove', () => { o[k] = ''; sv(); draw() }, 'd') : '')) };
+  draw() }
+
+function gallery(o, k, w) {
+  const box = h('div', { className: 'gl' }), draw = () => { box.replaceChildren(...o[k].map((g, i) => h('div', {}, h('img', { src: g, alt: '' }), btn('×', () => { o[k].splice(i, 1); sv(); draw() }, 'd')))) };
+  w.append(box, h('div', { className: 'ar' }, btn('Upload images', () => pick(true, d => { o[k].push(d); sv(); draw() })), btn('Add image path', () => { const p = prompt('Image path, for example images/projects/drone-1.jpg'); if (p) { o[k].push(p.trim()); sv(); draw() } })));
+  draw() }
+
+function list(o, k, w) {
+  const a = o[k], box = h('div'), draw = () => { box.replaceChildren(...a.map((it, i) => h('details', {}, h('summary', { textContent: (i + 1) + '. ' + title(it) }), build(it),
+    h('div', { className: 'ar' }, btn('Move up', () => { if (i) { [a[i - 1], a[i]] = [a[i], a[i - 1]]; sv(); draw() } }), btn('Move down', () => { if (i < a.length - 1) { [a[i + 1], a[i]] = [a[i], a[i + 1]]; sv(); draw() } }), btn('Delete', () => { if (confirm('Delete this item?')) { a.splice(i, 1); sv(); draw() } }, 'd'))))) };
+  w.append(box, btn('+ Add item', () => { a.push(structuredClone(TPL[k])); sv(); draw(); box.lastElementChild?.setAttribute('open', '') }, 'btn'));
+  draw() }
+
+function node(o, k) {
+  const v = o[k], w = h('div', { className: 'f' }), L = h('label', { textContent: lab(k) });
+  if (typeof v === 'string') {
+    if (/^(thumbnail|photo)$/.test(k)) { w.className += ' w'; w.append(L); imgField(o, k, w) }
+    else { const long = /summary|architecture|results|pitch|^sub$/.test(k) || v.length > 80; if (long) w.className += ' w';
+      w.append(L, h(long ? 'textarea' : 'input', { value: v, rows: 3, oninput: e => { o[k] = e.target.value; sv() } })) }
+  } else if (k === 'gallery') { w.className += ' w'; w.append(L); gallery(o, k, w) }
+  else if (k in TPL) { w.className += ' w'; w.append(L); list(o, k, w) }
+  else if (Array.isArray(v)) { w.className += ' w'; L.textContent += ' (one per line)'; w.append(L, h('textarea', { value: v.join('\n'), rows: 4, oninput: e => { o[k] = lines(e.target.value); sv() } })) }
+  return w }
+const build = o => h('div', { className: 'g' }, Object.keys(o).map(k => node(o, k)));
+
+function draw() {
+  $('#tabs').replaceChildren(...Object.keys(TABS).map(k => h('button', { textContent: TABS[k], className: k === tab ? 'on' : '', onclick: () => { tab = k; draw() } })));
+  const ed = $('#ed'); ed.replaceChildren();
+  if (Array.isArray(S[tab])) { const w = h('div'); list(S, tab, w); ed.append(w) } else ed.append(build(S[tab])) }
+
+$('#dl').onclick = () => { (S.projects || []).forEach(p => { if (!p.id) p.id = slug(p.title || 'project') }); save();
+  const a = h('a', { href: URL.createObjectURL(new Blob([JSON.stringify(S, null, 2)], { type: 'application/json' })), download: 'content.json' }); a.click(); status('Downloaded. Replace content.json in your repo.') };
+$('#pv').onclick = () => { save(); open('index.html?preview', '_blank') };
+$('#rs').onclick = async () => { if (!confirm('Discard the draft and reload the published content?')) return; try { localStorage.removeItem('draft') } catch (e) { } S = await (await fetch('content.json')).json(); draw(); status('Loaded published content') };
+$('#im').onclick = () => { const i = h('input', { type: 'file', accept: '.json' }); i.onchange = async () => { try { S = JSON.parse(await i.files[0].text()); draw(); save() } catch (e) { status('That file is not valid JSON.', 1) } }; i.click() };
+
+(async () => { let d = null; try { d = JSON.parse(localStorage.getItem('draft')) } catch (e) { }
+  if (d) status('Editing your saved draft'); else try { d = await (await fetch('content.json')).json() } catch (e) { status('Could not load content.json. Serve this folder over HTTP.', 1); return }
+  S = d; draw() })();
+</script></body></html>
