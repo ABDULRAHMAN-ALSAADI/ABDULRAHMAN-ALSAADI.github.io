@@ -1,0 +1,42 @@
+Portfolio v7 — Bilingual layout and Arabic editorial audit
+
+Main fixes
+- Fixed desktop hero overlap caused by the wider Thmanyah Serif Display face.
+- Rebalanced English hero columns and reduced display-title scale while preserving its visual impact.
+- Built a separate native RTL hero composition for Arabic: identity on the right, supporting copy on the left.
+- Added safer responsive hero sizing for 1280px, tablet, and mobile layouts.
+- Reduced oversized Arabic archive/detail titles to prevent collisions and awkward wrapping.
+
+Arabic copy-edit
+- Rewrote Arabic UI copy as natural professional Arabic instead of literal word-for-word translation.
+- Improved terminology for autonomous systems, mechanical design, embedded systems, system integration, prototyping, manufacturing, and verification.
+- Rewrote the Arabic hero, About copy, project archive description, Background labels, CTA, and Experience copy.
+- Re-edited the full Arabic Smart Methods experience page.
+- Re-edited SCARA, WD Drone, 6-DOF Cycloidal Arm, and myCobot project descriptions, features, architecture, results, and metric labels.
+- Corrected the 6-DOF Arabic title to describe Cycloidal reducers rather than motors.
+- Kept canonical technical names such as ROS 2, CAD, FEA, MQTT, MAVLink, SolidWorks, and OpenCV in English where that is clearer for engineers.
+
+Bilingual UI audit
+- Localized hidden/secondary strings such as menu controls, gallery image labels, certificate labels, and "+N more" stack text.
+- Preserved LTR direction for technical tags, metric values, units, and English technology names inside RTL pages.
+- Improved RTL button padding, arrows, section rhythm, card line-height, and mobile spacing.
+- Kept the Arabic Projects default-filter fix: all projects display immediately on entry.
+
+Unchanged by design
+- Thmanyah typography system remains active in both English and Arabic.
+- Existing engineering visual identity, colors, blueprint artwork, Saudi/Yemeni details, project order, Experience routing, Background teaser, language switch, and back-to-top button are preserved.
+- Latest Robotics and Mechanical Design resume PDFs remain included.
+
+V8 DEPLOYMENT-READY FINAL CHANGES
+- Arabic site identity now displays the name as: عبدالرحمن السعدي
+- Replaced Mechanical Design resume download with the latest user-approved PDF layout.
+- No other content, layout, styling, project, experience, or bilingual behavior changes from v7.
+
+v9 Arabic homepage corrections
+------------------------------
+- Fixed the desktop Arabic hero grid so the identity block and supporting copy occupy the same row.
+  This removes the large empty vertical gap that appeared only in RTL mode.
+- Reworked the Arabic name/logo as a two-part RTL wordmark with an explicit flex gap,
+  preserving the correct visual spacing: عبدالرحمن السعدي.
+- Applied the same Arabic wordmark treatment to the sticky navigation.
+- Kept the English layout and all previously approved content unchanged.
