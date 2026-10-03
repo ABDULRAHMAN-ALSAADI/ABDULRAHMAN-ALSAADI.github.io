@@ -1,0 +1,43 @@
+Portfolio update summary
+========================
+
+This update improves both content quality and technical performance.
+
+What changed
+------------
+1) Curated and reorganized the SCARA and WD Drone galleries.
+   - Added the new images provided in the latest content.json.
+   - Reduced repetition and ordered the images to better tell the engineering story.
+   - Synced the same galleries into the Arabic version.
+
+2) Added project-status badges.
+   - Examples: Physically Validated, Flight Tested, Mechanical Design Complete, Learning Project.
+
+3) Added “My contribution” sections to project pages.
+   - Especially important for the team-based drone project.
+
+4) Added visible image captions to project galleries.
+   - This makes each image explain what it proves.
+
+5) Improved performance significantly.
+   - Converted embedded base64 image blobs into shared files under assets/media/.
+   - content.json and content.ar.json are now lightweight and much faster to load.
+
+6) Improved SEO / sharing.
+   - Added og:image and Twitter image metadata to index.html.
+
+Files to upload
+---------------
+Replace the full site with the contents of this folder, including:
+- index.html
+- app.js
+- style.css
+- content.json
+- content.ar.json
+- assets/media/...
+- the resume PDFs
+- admin.html
+
+Important
+---------
+Because the site now references images from assets/media/, you should replace the whole deployed site, not only a few files.
