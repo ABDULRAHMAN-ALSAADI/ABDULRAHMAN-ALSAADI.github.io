@@ -1,0 +1,35 @@
+Automated regression test report
+================================
+
+Result: PASS
+
+Tested in headless Chromium with the production app.js and both production content files.
+
+English
+- Homepage renders 3 featured project cards.
+- SCARA featured card opens its project detail page.
+- WD Drone featured card opens its project detail page.
+- 6-DOF Arm featured card opens its project detail page.
+- Projects archive renders all 4 projects.
+- Project cards open detail pages.
+- Smart Methods Experience card opens its detail page.
+- Gallery lightbox opens and closes.
+- Resume section contains both CV downloads.
+
+Arabic
+- Language switch renders RTL Arabic content.
+- Homepage renders 3 featured project cards.
+- Projects archive opens with "الكل" selected automatically.
+- All 4 Arabic project cards render and open their detail pages.
+- Experience archive renders and Smart Methods opens correctly.
+- Switching languages while inside Experience/detail pages works.
+
+Runtime
+- No JavaScript page errors were reported during the test sequence.
+- All referenced local media/PDF files exist.
+
+Featured thumbnails
+- SCARA: restored to the user's original v9 selected thumbnail.
+- WD Drone: restored to the user's original v9 selected thumbnail.
+- 6-DOF Arm: kept the user's original v9 selected thumbnail.
+- Smart Methods: restored/verified against the user's original v9 selected thumbnail.
