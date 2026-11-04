@@ -655,3 +655,17 @@ html[dir='rtl'] .logo.logoAr span+span{
 @media(max-width:800px){
   html[dir='rtl'] .logo.logoAr{gap:.18em}
 }
+
+/* ===== Certificate categories and filters ===== */
+.certSection{gap:22px}
+.certSectionHead{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.certSectionHead h3{margin-bottom:0}
+.certFilters{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+.certFilters button{font:600 12px/1.4 inherit;color:var(--mu);background:transparent;border:1px solid var(--bd);border-radius:99px;padding:10px 17px;min-height:39px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.certFilters button:hover{color:var(--tx);border-color:rgba(16,185,129,.55)}
+.certFilters button.on{background:var(--em);color:#04150d;border-color:var(--em);font-weight:700}
+.certSection .certs{margin-top:0}
+.certSection .certcard .cb{display:flex;flex-direction:column;min-height:174px}
+.certSection .certcard[hidden]{display:none}
+.certcard .certBadge{display:inline-flex;align-items:center;align-self:flex-end;margin-top:auto;padding:5px 10px;max-width:100%;border:1px solid rgba(16,185,129,.35);border-radius:99px;background:rgba(16,185,129,.09);color:var(--em2);font-size:11px;line-height:1.35;font-weight:700;text-align:center}
+@media(max-width:520px){.certFilters{gap:8px}.certFilters button{font-size:11px;padding:8px 13px;min-height:36px}.certSection .certcard .cb{min-height:184px}.certcard .certBadge{font-size:10px}}

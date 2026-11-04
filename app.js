@@ -7,8 +7,8 @@ const $ = s => document.querySelector(s), app = $('#app');
 let SITE = {}, C = {}, DATA = [], EXP = [], mail = '', GAL = [], LBI = 0;
 let LANG = localStorage.getItem('portfolio-lang') === 'ar' ? 'ar' : 'en';
 const UI = {
-  en: {home:'Home', about:'About', projects:'Projects', contact:'Get in touch', viewProjects:'View projects', downloadResume:'Download resume', experience:'Experience', repositories:'Repositories', resumes:'Resume downloads', coreStack:'Core engineering stack', selectedWork:'Selected engineering work', featured:'Featured projects', featuredLead:'The projects that best show how I work from requirements and CAD through integration, manufacturing, and physical validation.', career:'Career', background:'Background', industry:'Industry Experience', education:'Education', certs:'Certifications & Memberships', languages:'Languages', moreWork:'More work', explore:'Explore additional engineering projects', allProjects:'See all projects', selected:'Selected work', archiveLead:'Robotic and electromechanical systems, from first CAD sketch to simulation, prototype, bench test, and flight test.', filter:'Filter by category', all:'All', timeline:'Timeline', role:'Role', stack:'Stack', links:'Links', github:'GitHub', demo:'Demo video', cad:'CAD files', coming:'Coming soon', overview:'Overview', features:'Key features', architecture:'System architecture', results:'Results', gallery:'Gallery', previous:'Previous', next:'Next', connect:'Let\'s connect', cta:'Building something that moves, thinks, or both?', email:'Email me', arabic:'العربية', english:'EN', top:'Back to top', learning:'Learning & Technical Exercises', viewProject:'View project', viewExperience:'View experience', experienceLead:'Industry experience and hands-on engineering work.', notFound:'Project not found', notFoundExperience:'Experience not found', backProjects:'Back to projects', backExperience:'Back to experience', moreItems:'more', openMenu:'Open menu', closeMenu:'Close menu', switchArabic:'Switch to Arabic', switchEnglish:'Switch to English', enlarge:'Enlarge', imageWord:'image', ofWord:'of', certificateWord:'certificate', musnadLabel:'Musnad-inspired mark', status:'Status', contribution:'My contribution'},
-  ar: {home:'الرئيسية', about:'عني', projects:'المشاريع', contact:'تواصل معي', viewProjects:'استعرض المشاريع', downloadResume:'السيرة الذاتية', experience:'الخبرات', repositories:'مستودعات GitHub', resumes:'السير الذاتية', coreStack:'التقنيات والأدوات', selectedWork:'مختارات من أعمالي', featured:'مشاريع مختارة', featuredLead:'ثلاثة مشاريع تلخّص طريقتي في العمل: من المتطلبات والتصميم الهندسي إلى التصنيع والتكامل والتحقق العملي.', career:'المسيرة', background:'الخبرات والمؤهلات', industry:'الخبرة المهنية', education:'التعليم', certs:'الشهادات والعضويات المهنية', languages:'اللغات', moreWork:'مشاريع أخرى', explore:'مشاريع وتمارين هندسية إضافية', allProjects:'استعرض كل المشاريع', selected:'مختارات', archiveLead:'مشاريع روبوتية وكهروميكانيكية تبدأ من الفكرة والتصميم، وتمتد إلى المحاكاة والنماذج الأولية والاختبارات العملية.', filter:'تصفية المشاريع حسب المجال', all:'الكل', timeline:'الفترة', role:'الدور', stack:'التقنيات والأدوات', links:'الروابط', github:'GitHub', demo:'فيديو المشروع', cad:'ملفات CAD', coming:'قريبًا', overview:'عن المشروع', features:'أبرز ما عملت عليه', architecture:'بنية النظام', results:'النتائج والتحقق', gallery:'الصور', previous:'السابق', next:'التالي', connect:'لنتواصل', cta:'تعمل على شيء يتحرّك، يفكّر... أو يجمع بينهما؟', email:'راسلني', arabic:'العربية', english:'EN', top:'العودة إلى الأعلى', learning:'مشاريع تعلّم وتمارين تقنية', viewProject:'عرض المشروع', viewExperience:'عرض تفاصيل التدريب', experienceLead:'خبرة مهنية عملية جمعت بين التصميم الميكانيكي والبرمجة والتحكم وتكامل الأنظمة الروبوتية.', notFound:'المشروع غير موجود', notFoundExperience:'الخبرة غير موجودة', backProjects:'العودة إلى المشاريع', backExperience:'العودة إلى الخبرات', moreItems:'تقنيات إضافية', openMenu:'فتح القائمة', closeMenu:'إغلاق القائمة', switchArabic:'التبديل إلى العربية', switchEnglish:'التبديل إلى الإنجليزية', enlarge:'تكبير', imageWord:'الصورة', ofWord:'من', certificateWord:'الشهادة', musnadLabel:'لمسة مستوحاة من خط المسند', status:'الحالة', contribution:'مساهمتي'}
+  en: {home:'Home', about:'About', projects:'Projects', contact:'Get in touch', viewProjects:'View projects', downloadResume:'Download resume', experience:'Experience', repositories:'Repositories', resumes:'Resume downloads', coreStack:'Core engineering stack', selectedWork:'Selected engineering work', featured:'Featured projects', featuredLead:'The projects that best show how I work from requirements and CAD through integration, manufacturing, and physical validation.', career:'Career', background:'Background', industry:'Industry Experience', education:'Education', certs:'Certifications & Memberships', languages:'Languages', moreWork:'More work', explore:'Explore additional engineering projects', allProjects:'See all projects', selected:'Selected work', archiveLead:'Robotic and electromechanical systems, from first CAD sketch to simulation, prototype, bench test, and flight test.', filter:'Filter by category', all:'All', timeline:'Timeline', role:'Role', stack:'Stack', links:'Links', github:'GitHub', demo:'Demo video', cad:'CAD files', coming:'Coming soon', overview:'Overview', features:'Key features', architecture:'System architecture', results:'Results', gallery:'Gallery', previous:'Previous', next:'Next', connect:'Let\'s connect', cta:'Building something that moves, thinks, or both?', email:'Email me', arabic:'العربية', english:'EN', top:'Back to top', learning:'Learning & Technical Exercises', viewProject:'View project', viewExperience:'View experience', experienceLead:'Industry experience and hands-on engineering work.', notFound:'Project not found', notFoundExperience:'Experience not found', backProjects:'Back to projects', backExperience:'Back to experience', moreItems:'more', openMenu:'Open menu', closeMenu:'Close menu', switchArabic:'Switch to Arabic', switchEnglish:'Switch to English', enlarge:'Enlarge', imageWord:'image', ofWord:'of', certificateWord:'certificate', musnadLabel:'Musnad-inspired mark', status:'Status', contribution:'My contribution', certAll:'All', certCredentials:'Credentials', certProfessional:'Professional Certifications', certCourses:'Courses', certFilterLabel:'Filter certificates by category', certBadgeCredential:'Credential', certBadgeProfessional:'Professional Certificate', certBadgeCourse:'Course'},
+  ar: {home:'الرئيسية', about:'عني', projects:'المشاريع', contact:'تواصل معي', viewProjects:'استعرض المشاريع', downloadResume:'السيرة الذاتية', experience:'الخبرات', repositories:'مستودعات GitHub', resumes:'السير الذاتية', coreStack:'التقنيات والأدوات', selectedWork:'مختارات من أعمالي', featured:'مشاريع مختارة', featuredLead:'ثلاثة مشاريع تلخّص طريقتي في العمل: من المتطلبات والتصميم الهندسي إلى التصنيع والتكامل والتحقق العملي.', career:'المسيرة', background:'الخبرات والمؤهلات', industry:'الخبرة المهنية', education:'التعليم', certs:'الشهادات والعضويات المهنية', languages:'اللغات', moreWork:'مشاريع أخرى', explore:'مشاريع وتمارين هندسية إضافية', allProjects:'استعرض كل المشاريع', selected:'مختارات', archiveLead:'مشاريع روبوتية وكهروميكانيكية تبدأ من الفكرة والتصميم، وتمتد إلى المحاكاة والنماذج الأولية والاختبارات العملية.', filter:'تصفية المشاريع حسب المجال', all:'الكل', timeline:'الفترة', role:'الدور', stack:'التقنيات والأدوات', links:'الروابط', github:'GitHub', demo:'فيديو المشروع', cad:'ملفات CAD', coming:'قريبًا', overview:'عن المشروع', features:'أبرز ما عملت عليه', architecture:'بنية النظام', results:'النتائج والتحقق', gallery:'الصور', previous:'السابق', next:'التالي', connect:'لنتواصل', cta:'تعمل على شيء يتحرّك، يفكّر... أو يجمع بينهما؟', email:'راسلني', arabic:'العربية', english:'EN', top:'العودة إلى الأعلى', learning:'مشاريع تعلّم وتمارين تقنية', viewProject:'عرض المشروع', viewExperience:'عرض تفاصيل التدريب', experienceLead:'خبرة مهنية عملية جمعت بين التصميم الميكانيكي والبرمجة والتحكم وتكامل الأنظمة الروبوتية.', notFound:'المشروع غير موجود', notFoundExperience:'الخبرة غير موجودة', backProjects:'العودة إلى المشاريع', backExperience:'العودة إلى الخبرات', moreItems:'تقنيات إضافية', openMenu:'فتح القائمة', closeMenu:'إغلاق القائمة', switchArabic:'التبديل إلى العربية', switchEnglish:'التبديل إلى الإنجليزية', enlarge:'تكبير', imageWord:'الصورة', ofWord:'من', certificateWord:'الشهادة', musnadLabel:'لمسة مستوحاة من خط المسند', status:'الحالة', contribution:'مساهمتي', certAll:'الكل', certCredentials:'الاعتمادات المهنية', certProfessional:'الشهادات المهنية', certCourses:'الدورات', certFilterLabel:'تصفية الشهادات حسب النوع', certBadgeCredential:'اعتماد مهني', certBadgeProfessional:'شهادة مهنية', certBadgeCourse:'دورة'}
 };
 const T = k => UI[LANG][k] || UI.en[k] || k;
 function applyLangMeta(){ document.documentElement.lang = LANG === 'ar' ? 'ar' : 'en'; document.documentElement.dir = LANG === 'ar' ? 'rtl' : 'ltr'; document.body.classList.toggle('rtl', LANG === 'ar'); const b = document.getElementById('toTop'); if (b) b.setAttribute('aria-label', T('top')); }
@@ -135,7 +135,9 @@ const foot = () => `<section class="cta reveal"><span class="k">${T('connect')}<
 const cvBtns = () => `<div class="cvb">${(SITE.cv || []).filter(c => c.file).map(c => `<a class="pill o" href="${esc(safePdf(c.file))}" download="${esc(c.file.startsWith('data:') ? slugFile(c.label) + '.pdf' : basename(c.file))}">${esc(c.label)}<em>&#8595;</em></a>`).join('')}</div>`;
 const statsRow = () => `<div class="stats">${(C.stats || []).map((s, i) => `<div class="reveal" style="transition-delay:${i * 80}ms"><b>${esc(s.v)}</b><span>${esc(s.l)}</span></div>`).join('')}</div>`;
 const it = (t, s, d, pts) => `<div class="it reveal"><div class="meta"><b>${esc(t)}</b><span>${esc(d)}</span></div><p class="mu">${esc(s)}</p>${pts?.length ? `<ul>${pts.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}</div>`;
-const certCard = (c, i) => `<div class="certcard reveal" style="transition-delay:${(i % 4) * 70}ms"><button type="button" class="cthumb" ${c.image ? `data-lbsrc="${esc(safeImg(c.image))}"` : 'disabled aria-hidden="true" tabindex="-1"'} aria-label="${LANG === 'ar' ? T('enlarge') + ' ' + T('certificateWord') + ' ' + esc(c.title) : T('enlarge') + ' ' + esc(c.title) + ' ' + T('certificateWord')}" style="${c.image ? '' : 'cursor:default'}">${img(c.image, c.title, T('certificateWord'))}</button><div class="cb"><b>${esc(c.title)}</b><span class="mu">${esc(c.issuer)}</span>${c.date ? `<span class="cd">${esc(c.date)}</span>` : ''}</div></div>`;
+function certKind(c){return ["credential","professional","course"].includes(c.kind)?c.kind:"course";}
+function certKindLabel(kind){return T({credential:"certBadgeCredential",professional:"certBadgeProfessional",course:"certBadgeCourse"}[kind]);}
+const certCard = (c, i) => `<div class="certcard reveal" data-cert-kind="${certKind(c)}" style="transition-delay:${(i % 4) * 70}ms"><button type="button" class="cthumb" ${c.image ? `data-lbsrc="${esc(safeImg(c.image))}"` : 'disabled aria-hidden="true" tabindex="-1"'} aria-label="${LANG === 'ar' ? T('enlarge') + ' ' + T('certificateWord') + ' ' + esc(c.title) : T('enlarge') + ' ' + esc(c.title) + ' ' + T('certificateWord')}" style="${c.image ? '' : 'cursor:default'}">${img(c.image, c.title, T('certificateWord'))}</button><div class="cb"><b>${esc(c.title)}</b><span class="mu">${esc(c.issuer)}</span>${c.date ? `<span class="cd">${esc(c.date)}</span>` : ''}<span class="certBadge">${esc(certKindLabel(certKind(c)))}</span></div></div>`;
 const experienceListCard = (e, i) => `<a class="card reveal" style="transition-delay:${(i % 3) * 90}ms" href="#/experience/${esc(e.id)}">
 <div class="thumb">${img(e.thumbnail || e.image, e.title || e.company, e.role)}<span class="chip">${esc(e.category || T('industry'))}</span></div>
 <div class="b"><div class="meta mono"><span>${esc(e.year || e.period)}</span><span class="view">${T('viewExperience')} &#8594;</span></div>${e.status ? `<div class="state">${esc(e.status)}</div>` : ''}<h3>${esc(e.title || e.role)}</h3>
@@ -171,6 +173,26 @@ function backgroundExperienceTeaser() {
   </a>`;
 }
 
+function certSection(){
+  const certs = C.certifications || [];
+  if(!certs.length) return "";
+  const tabs = [
+    ["all",T("certAll")],
+    ["credential",T("certCredentials")],
+    ["professional",T("certProfessional")],
+    ["course",T("certCourses")]
+  ];
+  return `<div class="cols certSection" style="grid-template-columns:1fr">
+    <div class="certSectionHead">
+      <h3 class="reveal">${T("certs")}</h3>
+      <div class="certFilters" role="group" aria-label="${esc(T("certFilterLabel"))}">
+        ${tabs.map(([kind,label])=>`<button type="button" data-cert-filter="${kind}" aria-pressed="${kind==="all"}" class="${kind==="all"?"on":""}">${esc(label)}</button>`).join("")}
+      </div>
+    </div>
+    <div class="certs">${certs.slice().sort((a,b)=>(a.priority||99)-(b.priority||99)).map(certCard).join("")}</div>
+  </div>`;
+}
+
 function home() {
   const role = String(SITE.role || '').split(' ');
   const featured = DATA.slice(0, 3);
@@ -190,7 +212,7 @@ ${statsRow()}
 <section class="wrap sec backgroundSection"><span class="k reveal">${T('career')}</span><h2 class="reveal" style="margin-bottom:24px">${T('background')}</h2>
 ${backgroundExperienceTeaser()}
 ${grp(T('education'), (C.education || []).map(e => it(e.degree, e.school, e.period)).join(''))}
-${(C.certifications || []).length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('certs')}</h3><div class="certs">${(C.certifications || []).map(certCard).join('')}</div></div>` : ''}
+${certSection()}
 ${grp(T('languages'), (C.languages || []).map(e => it(e.name, e.level, '')).join(''))}</section>
 ${more.length ? `<section class="wrap fanWrap moreWork"><span class="k reveal">${T('moreWork')}</span><h2 class="reveal">${T('explore')}</h2><div class="fan">${more.map((p, i) => { const o = i - mid; return `<a class="reveal" href="#/projects/${esc(p.id)}" style="transform:rotateY(${-o * 11}deg) translateY(${Math.abs(o) * 14}px)">${img(p.thumbnail, p.title, p.short)}<em>${esc(p.short || p.title)}</em></a>`; }).join('')}</div>${arrow(T('allProjects'), '#/projects')}</section>` : ''}${foot()}`;
 }
@@ -303,8 +325,23 @@ function openLB() {
 function closeLB() { $('#lb').classList.remove('on'); }
 
 let secretN = 0, secretT;
+function applyCertFilter(button){
+  const kind=button.dataset.certFilter;
+  if(!["all","credential","professional","course"].includes(kind)) return;
+  document.querySelectorAll("[data-cert-filter]").forEach(tab=>{
+    const selected=tab.dataset.certFilter===kind;
+    tab.classList.toggle("on",selected);
+    tab.setAttribute("aria-pressed",String(selected));
+  });
+  document.querySelectorAll(".certcard[data-cert-kind]").forEach(card=>{
+    card.hidden=kind!=="all" && card.dataset.certKind!==kind;
+  });
+}
+
 document.addEventListener('click', e => {
   const t = e.target;
+  const certTab = t.closest('[data-cert-filter]');
+  if (certTab) { applyCertFilter(certTab); return; }
   const f = t.closest('[data-c]');
   if (f) { const y = scrollY; app.innerHTML = archive(f.dataset.c); afterRender(); scrollTo(0, y); return; }
   const g = t.closest('[data-gi]'); if (g) { LBI = +g.dataset.gi; openLB(); return; }
