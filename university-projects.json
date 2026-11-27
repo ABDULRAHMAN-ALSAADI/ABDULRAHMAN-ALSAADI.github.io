@@ -1,0 +1,1032 @@
+{
+  "en": [
+    {
+      "id": "academic-suspension",
+      "academic": true,
+      "title": "Automotive Suspension: Vibration & Fatigue Analysis",
+      "short": "Suspension analysis",
+      "category": "Mechanical Design & FEA",
+      "year": "2023",
+      "timeline": "May 2023 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "CAD assembly and simulation study of suspension response under mechanical loading.",
+      "summary": "Investigated the structural and dynamic behavior of an automotive suspension assembly as part of university coursework. The study covered natural vibration modes, transient response, static stress and displacement, and fatigue assessment using SolidWorks Simulation.",
+      "features": [
+        "Prepared the suspension assembly, mesh and simulation studies.",
+        "Examined mode shapes and frequency outputs.",
+        "Compared transient response plots at selected nodes.",
+        "Reviewed fatigue life and S–N curve outputs alongside static stress and displacement."
+      ],
+      "results": "The report documents modal, dynamic, static and fatigue simulation outputs. These are academic numerical studies, not experimentally validated suspension performance or a certified fatigue life.",
+      "tags": [
+        "SolidWorks",
+        "FEA",
+        "Modal Analysis",
+        "Dynamic Analysis",
+        "Fatigue Analysis"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-suspension-cover.webp",
+      "cover": "assets/media/university/academic-suspension-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-suspension-1.webp",
+          "caption": "Suspension CAD assembly"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-2.webp",
+          "caption": "Finite element mesh"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-3.webp",
+          "caption": "Frequency-study mode shape"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-4.webp",
+          "caption": "Transient displacement study"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-5.webp",
+          "caption": "Fatigue S–N curve"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-6.webp",
+          "caption": "Fatigue life simulation"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-7.webp",
+          "caption": "Static displacement study"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-amplifier",
+      "academic": true,
+      "title": "Analog Amplifier Design & PCB Prototyping",
+      "short": "Analog amplifier & PCB",
+      "category": "Electronics & Hardware",
+      "year": "2025",
+      "timeline": "May 2025 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "From transistor bias calculations and circuit simulation to a fabricated PCB prototype.",
+      "summary": "Designed a common-emitter amplifier around the 2N3904 NPN transistor for an Electronics II coursework project. Selected the topology and component values using analytical calculations and datasheet information, compared simulation results in two tools, and developed a PCB layout and assembled physical board.",
+      "features": [
+        "Selected the transistor topology and biasing network.",
+        "Calculated resistor and capacitor values for the target gain.",
+        "Simulated unloaded and loaded circuit configurations.",
+        "Created a PCB layout and fabricated an assembled prototype."
+      ],
+      "results": "The original report records approximately 505 V/V in Proteus and 507 V/V in LTspice for the initial simulated configuration. The physical board is documented by photographs; no bench-measured gain is claimed.",
+      "tags": [
+        "2N3904 BJT",
+        "Proteus",
+        "LTspice",
+        "PCB Design",
+        "Analog Electronics"
+      ],
+      "metrics": [
+        {
+          "value": "505 V/V",
+          "label": "Proteus simulated gain"
+        },
+        {
+          "value": "507 V/V",
+          "label": "LTspice simulated gain"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-amplifier-cover.webp",
+      "cover": "assets/media/university/academic-amplifier-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-amplifier-1.webp",
+          "caption": "Fabricated and assembled PCB"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-2.webp",
+          "caption": "Proteus circuit schematic"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-3.webp",
+          "caption": "Simulated oscilloscope waveforms"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-4.webp",
+          "caption": "3D PCB layout"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-5.webp",
+          "caption": "Physical prototype side view"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-crankshaft",
+      "academic": true,
+      "title": "Crankshaft Dynamic Balancing & Motion Analysis",
+      "short": "Crankshaft balancing",
+      "category": "Mechanical Design & FEA",
+      "year": "2025",
+      "timeline": "May 2025 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Analytical counterweight calculations and motion studies of balanced and unbalanced crankshaft configurations.",
+      "summary": "Studied two-plane dynamic balancing of a crankshaft using a SolidWorks model and analytical force and moment equations. The coursework examined equivalent imbalance masses, correction planes and bearing-reaction outputs.",
+      "features": [
+        "Modelled crankshaft geometry and identified correction planes.",
+        "Applied force and moment balance equations.",
+        "Set up balanced and unbalanced motion studies.",
+        "Reviewed reaction-force and displacement plots."
+      ],
+      "results": "The report presents both configurations and their simulated responses. A quantified reduction is intentionally omitted because equivalent operating conditions and plot definitions would need to be checked before comparing numerical results.",
+      "tags": [
+        "SolidWorks Motion",
+        "Machine Dynamics",
+        "Dynamic Balancing",
+        "Reaction Forces"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-crankshaft-cover.webp",
+      "cover": "assets/media/university/academic-crankshaft-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-crankshaft-1.webp",
+          "caption": "Crankshaft CAD model"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-2.webp",
+          "caption": "Dimensioned crankshaft geometry"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-3.webp",
+          "caption": "Unbalanced configuration"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-4.webp",
+          "caption": "Unbalanced reaction-force plot"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-5.webp",
+          "caption": "Balanced motion-study setup"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-6.webp",
+          "caption": "Balanced reaction-force plot"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-pump-cfd",
+      "academic": true,
+      "title": "Centrifugal Pump & Fan Design: CFD Study",
+      "short": "Pump & fan CFD",
+      "category": "Mechanical Design & FEA",
+      "year": "2023",
+      "timeline": "June 2023 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Explored single, series and parallel pump and fan configurations using flow simulation.",
+      "summary": "Developed CAD configurations and flow simulation studies for centrifugal pumps and fans arranged individually, in series and in parallel. Examined pressure and velocity fields and flow trajectories to compare the behavior of different layouts.",
+      "features": [
+        "Modelled single-unit, series and parallel layouts.",
+        "Set up flow simulations and visualized pressure and velocity distributions.",
+        "Reviewed flow trajectories and simulation goal tables.",
+        "Documented six configurations for comparative investigation."
+      ],
+      "results": "Six academic flow studies are documented. Efficiency and absolute performance values are not reported here because the original units, boundary conditions and convergence require further verification.",
+      "tags": [
+        "SolidWorks Flow Simulation",
+        "CFD",
+        "Fluid Mechanics",
+        "Pressure",
+        "Velocity"
+      ],
+      "metrics": [
+        {
+          "value": "6",
+          "label": "Configurations investigated"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-pump-cfd-cover.webp",
+      "cover": "assets/media/university/academic-pump-cfd-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-pump-cfd-1.webp",
+          "caption": "Single pump CAD model"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-2.webp",
+          "caption": "Single pump flow trajectory"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-3.webp",
+          "caption": "Series pump assembly"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-4.webp",
+          "caption": "Series pump flow trajectories"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-5.webp",
+          "caption": "Parallel pump assembly"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-6.webp",
+          "caption": "Parallel pump flow trajectories"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-7.webp",
+          "caption": "Single fan flow simulation"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-8.webp",
+          "caption": "Series fan flow simulation"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-9.webp",
+          "caption": "Parallel fan flow simulation"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-pressure-vessel",
+      "academic": true,
+      "title": "Pressure Vessel Structural Analysis",
+      "short": "Pressure vessel FEA",
+      "category": "Mechanical Design & FEA",
+      "year": "2023",
+      "timeline": "April 2023 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Comparative finite element studies of pressure vessel geometry, reinforcement and support arrangements.",
+      "summary": "Investigated how changes in pressure vessel geometry affect stress distribution. The academic study included variations in end-cap curvature, vessel size, flanges, reinforcing bands and support geometry under simulated pressure loading.",
+      "features": [
+        "Compared end-cap and corner geometry variations.",
+        "Investigated vessel size and flange configurations.",
+        "Examined reinforcing bands and alternative supports.",
+        "Reviewed von Mises stress distributions across design variants."
+      ],
+      "results": "The study provides comparative stress plots for design exploration. It does not establish code compliance, pressure-rating certification or safe operating limits.",
+      "tags": [
+        "SolidWorks Simulation",
+        "FEA",
+        "Stress Analysis",
+        "Design Iteration"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-pressure-vessel-cover.webp",
+      "cover": "assets/media/university/academic-pressure-vessel-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-pressure-vessel-1.webp",
+          "caption": "Baseline vessel stress study"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-2.webp",
+          "caption": "Alternative end geometry"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-3.webp",
+          "caption": "Vessel-size variation"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-4.webp",
+          "caption": "Flange configuration study"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-5.webp",
+          "caption": "Reinforcing band configuration"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-6.webp",
+          "caption": "Alternative support arrangement"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-reciprocating-pump",
+      "academic": true,
+      "title": "Reciprocating Pump Mechanism & Dynamic Analysis",
+      "short": "Reciprocating pump",
+      "category": "Mechanical Design & FEA",
+      "year": "2025",
+      "timeline": "April 2025 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Combined mechanism modelling, pressure-force calculations and motion analysis for a reciprocating pump.",
+      "summary": "Designed an academic reciprocating pump mechanism and explored the relationship between pressure, piston geometry, flow requirements and motor loading. Applied position, velocity, acceleration and force calculations before setting up motion simulations.",
+      "features": [
+        "Specified nominal pressure and flow design targets.",
+        "Calculated piston force from the pressure and cross-sectional area.",
+        "Applied vector-loop kinematics and dynamic force analysis.",
+        "Explored motor torque and motion-response outputs."
+      ],
+      "results": "The coursework used 5 bar and 7 L/s as design inputs, not measured performance. High-speed results and motor sizing require further verification before engineering use.",
+      "tags": [
+        "SolidWorks Motion",
+        "Kinematics",
+        "Machine Dynamics",
+        "Motor Sizing",
+        "Mechanism Design"
+      ],
+      "metrics": [
+        {
+          "value": "5 bar",
+          "label": "Design pressure target"
+        },
+        {
+          "value": "7 L/s",
+          "label": "Design flow target"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-reciprocating-pump-cover.webp",
+      "cover": "assets/media/university/academic-reciprocating-pump-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-1.webp",
+          "caption": "Reciprocating mechanism CAD assembly"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-2.webp",
+          "caption": "Alternate mechanism orientation"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-3.webp",
+          "caption": "Motion study setup"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-4.webp",
+          "caption": "Angular velocity plot"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-5.webp",
+          "caption": "Angular acceleration plot"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-6.webp",
+          "caption": "Loaded motion-study setup"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-water-tank",
+      "academic": true,
+      "title": "Steel Water Tank: Hydrostatic & Seismic Analysis",
+      "short": "Steel water tank FEA",
+      "category": "Mechanical Design & FEA",
+      "year": "2023",
+      "timeline": "April 2023 · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Academic finite element study of an elevated steel tank and its supporting frame.",
+      "summary": "Explored structural response of a steel water tank and its supporting frame using numerical simulation. The coursework documented hydrostatic and earthquake loading studies, including beam and shell model outputs, stresses and displacements.",
+      "features": [
+        "Prepared a structural tank and frame model.",
+        "Reviewed beam and shell element outputs.",
+        "Examined stress and displacement plots under modeled load cases."
+      ],
+      "results": "The study documents academic simulation outputs; it is not an independently validated seismic design or construction approval.",
+      "tags": [
+        "SolidWorks Simulation",
+        "FEA",
+        "Beam Modelling",
+        "Shell Modelling",
+        "Structural Analysis"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-water-tank-cover.webp",
+      "cover": "assets/media/university/academic-water-tank-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-water-tank-1.webp",
+          "caption": "Tank and supporting frame mesh"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-2.webp",
+          "caption": "Frame force and stress visualization"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-3.webp",
+          "caption": "Tank stress study"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-4.webp",
+          "caption": "Tank displacement study"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-5.webp",
+          "caption": "Frame stress output"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-cad-gallery",
+      "academic": true,
+      "title": "Mechanical CAD & Engineering Drawing Collection",
+      "short": "Mechanical CAD collection",
+      "category": "Mechanical Design & FEA",
+      "year": "Coursework",
+      "timeline": "University coursework · Karabük University",
+      "role": "University engineering project",
+      "status": "Academic coursework",
+      "tagline": "Selected component models and dimensioned drawing exercises from two engineering graphics assignments.",
+      "summary": "A curated collection of mechanical component modelling and engineering drawing exercises completed during university. The two original reports document 30 examples, including brackets, flanged housings, wheels and components with internal features.",
+      "features": [
+        "Interpreted dimensioned component drawings.",
+        "Created 3D models and orthographic representations.",
+        "Used sectional views to communicate internal geometry.",
+        "Selected representative examples for the portfolio gallery."
+      ],
+      "results": "The collection demonstrates foundational CAD and drawing skills. These are coursework modelling exercises rather than claims of original product invention or manufacturing qualification.",
+      "tags": [
+        "SolidWorks",
+        "3D CAD",
+        "Technical Drawings",
+        "Orthographic Views",
+        "Section Views"
+      ],
+      "metrics": [
+        {
+          "value": "30",
+          "label": "Documented component examples"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-cad-gallery-cover.webp",
+      "cover": "assets/media/university/academic-cad-gallery-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-cad-gallery-1.webp",
+          "caption": "Flanged housing with section view"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-2.webp",
+          "caption": "Bearing-style housing and dimensioned views"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-3.webp",
+          "caption": "Spoked wheel and section view"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-4.webp",
+          "caption": "Ribbed mounting bracket"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-5.webp",
+          "caption": "Threaded component drawing"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-6.webp",
+          "caption": "Linkage component drawing"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-7.webp",
+          "caption": "Mechanical housing drawing"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-8.webp",
+          "caption": "Mounting component drawing"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    }
+  ],
+  "ar": [
+    {
+      "id": "academic-suspension",
+      "academic": true,
+      "title": "تحليل الاهتزاز والإجهاد المتكرر لنظام تعليق السيارات",
+      "short": "تحليل نظام التعليق",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2023",
+      "timeline": "مايو 2023، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "نمذجة تجميع نظام التعليق ودراسة استجابته للأحمال الميكانيكية بالمحاكاة.",
+      "summary": "دراسة أكاديمية للسلوك الإنشائي والديناميكي لتجميع نظام تعليق سيارات، شملت أنماط الاهتزاز الطبيعية والاستجابة العابرة والإجهاد والإزاحة والتحليل الكلالي باستخدام SolidWorks Simulation.",
+      "features": [
+        "إعداد التجميع والشبكة ودراسات المحاكاة.",
+        "دراسة أشكال أنماط الاهتزاز والترددات.",
+        "مقارنة منحنيات الاستجابة العابرة عند عقد محددة.",
+        "مراجعة مخرجات العمر الكلالي ومنحنى S–N والإجهاد والإزاحة."
+      ],
+      "results": "يوثق التقرير مخرجات التحليل النمطي والديناميكي والاستاتيكي والكلالي. وهي دراسات عددية أكاديمية وليست نتائج اختبار تجريبي أو اعتماد للعمر الكلالي.",
+      "tags": [
+        "SolidWorks",
+        "FEA",
+        "Modal Analysis",
+        "Dynamic Analysis",
+        "Fatigue Analysis"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-suspension-cover.webp",
+      "cover": "assets/media/university/academic-suspension-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-suspension-1.webp",
+          "caption": "التجميع الهندسي لنظام التعليق"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-2.webp",
+          "caption": "شبكة العناصر المحددة"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-3.webp",
+          "caption": "شكل نمط الاهتزاز"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-4.webp",
+          "caption": "دراسة الإزاحة العابرة"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-5.webp",
+          "caption": "منحنى الكلال S–N"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-6.webp",
+          "caption": "محاكاة العمر الكلالي"
+        },
+        {
+          "src": "assets/media/university/academic-suspension-7.webp",
+          "caption": "دراسة الإزاحة الاستاتيكية"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-amplifier",
+      "academic": true,
+      "title": "تصميم مضخم تناظري وتصنيع نموذج لوحة إلكترونية",
+      "short": "مضخم تناظري ولوحة إلكترونية",
+      "category": "الإلكترونيات والعتاد",
+      "year": "2025",
+      "timeline": "مايو 2025، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "من حسابات انحياز الترانزستور ومحاكاة الدائرة إلى تصنيع نموذج لوحة إلكترونية.",
+      "summary": "تصميم مضخم باعث مشترك باستخدام ترانزستور 2N3904 NPN ضمن مقرر الإلكترونيات 2. شمل اختيار البنية وقيم العناصر بالحسابات وبيانات المكونات، ومقارنة المحاكاة في برنامجين، وتصميم وتجميع لوحة إلكترونية فعلية.",
+      "features": [
+        "اختيار بنية الترانزستور وشبكة الانحياز.",
+        "حساب قيم المقاومات والمكثفات لتحقيق الكسب المستهدف.",
+        "محاكاة الدائرة مع الحمل وبدونه.",
+        "تصميم اللوحة وتصنيع نموذج مجمع."
+      ],
+      "results": "يسجل التقرير كسبًا يقارب 505 V/V في Proteus و507 V/V في LTspice للتكوين الأولي المحاكى. توثق الصور اللوحة الفعلية دون ادعاء قياس الكسب عمليًا.",
+      "tags": [
+        "2N3904 BJT",
+        "Proteus",
+        "LTspice",
+        "PCB Design",
+        "Analog Electronics"
+      ],
+      "metrics": [
+        {
+          "value": "505 V/V",
+          "label": "الكسب المحاكى في Proteus"
+        },
+        {
+          "value": "507 V/V",
+          "label": "الكسب المحاكى في LTspice"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-amplifier-cover.webp",
+      "cover": "assets/media/university/academic-amplifier-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-amplifier-1.webp",
+          "caption": "اللوحة الإلكترونية المصنعة والمجمعة"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-2.webp",
+          "caption": "مخطط الدائرة في Proteus"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-3.webp",
+          "caption": "أشكال الموجة المحاكية"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-4.webp",
+          "caption": "تصميم اللوحة ثلاثي الأبعاد"
+        },
+        {
+          "src": "assets/media/university/academic-amplifier-5.webp",
+          "caption": "منظر جانبي للنموذج الفعلي"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-crankshaft",
+      "academic": true,
+      "title": "الموازنة الديناميكية لعمود المرفق وتحليل الحركة",
+      "short": "موازنة عمود المرفق",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2025",
+      "timeline": "مايو 2025، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "حسابات أوزان الموازنة ودراسة حركة عمود المرفق قبل الموازنة وبعدها.",
+      "summary": "دراسة الموازنة الديناميكية في مستويين لعمود مرفق باستخدام نموذج SolidWorks ومعادلات القوى والعزوم، شملت كتل عدم الاتزان ومستويات التصحيح وردود أفعال المحامل.",
+      "features": [
+        "نمذجة هندسة عمود المرفق وتحديد مستويات التصحيح.",
+        "تطبيق معادلات اتزان القوى والعزوم.",
+        "إعداد دراسات الحركة قبل الموازنة وبعدها.",
+        "مراجعة منحنيات قوى رد الفعل والإزاحة."
+      ],
+      "results": "يعرض التقرير التكوينين والاستجابات المحاكية. لم تُذكر نسبة خفض رقمية لأن المقارنة تتطلب مراجعة ظروف التشغيل وتعريفات المنحنيات.",
+      "tags": [
+        "SolidWorks Motion",
+        "Machine Dynamics",
+        "Dynamic Balancing",
+        "Reaction Forces"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-crankshaft-cover.webp",
+      "cover": "assets/media/university/academic-crankshaft-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-crankshaft-1.webp",
+          "caption": "نموذج عمود المرفق"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-2.webp",
+          "caption": "هندسة عمود المرفق بالأبعاد"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-3.webp",
+          "caption": "التكوين غير المتزن"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-4.webp",
+          "caption": "منحنى رد الفعل قبل الموازنة"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-5.webp",
+          "caption": "إعداد دراسة الحركة بعد الموازنة"
+        },
+        {
+          "src": "assets/media/university/academic-crankshaft-6.webp",
+          "caption": "منحنى رد الفعل بعد الموازنة"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-pump-cfd",
+      "academic": true,
+      "title": "تصميم مضخات ومراوح طاردة مركزية ودراسة تدفق الموائع",
+      "short": "محاكاة المضخات والمراوح",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2023",
+      "timeline": "يونيو 2023، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "دراسة تكوينات المضخات والمراوح المفردة والمتصلة على التوالي والتوازي باستخدام محاكاة التدفق.",
+      "summary": "إعداد نماذج هندسية ودراسات تدفق لمضخات ومراوح طاردة مركزية مفردة ومتسلسلة ومتوازية، مع دراسة حقول الضغط والسرعة ومسارات التدفق لمقارنة التكوينات.",
+      "features": [
+        "نمذجة التكوينات المفردة والمتسلسلة والمتوازية.",
+        "إعداد محاكاة التدفق وعرض توزيعات الضغط والسرعة.",
+        "مراجعة مسارات التدفق وجداول أهداف المحاكاة.",
+        "توثيق ستة تكوينات للدراسة المقارنة."
+      ],
+      "results": "توثيق ست دراسات تدفق أكاديمية، دون نشر قيم الكفاءة والأداء المطلقة لأنها تتطلب التحقق من الوحدات والشروط الحدية والتقارب.",
+      "tags": [
+        "SolidWorks Flow Simulation",
+        "CFD",
+        "Fluid Mechanics",
+        "Pressure",
+        "Velocity"
+      ],
+      "metrics": [
+        {
+          "value": "6",
+          "label": "تكوينات مدروسة"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-pump-cfd-cover.webp",
+      "cover": "assets/media/university/academic-pump-cfd-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-pump-cfd-1.webp",
+          "caption": "نموذج المضخة المفردة"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-2.webp",
+          "caption": "مسارات التدفق للمضخة المفردة"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-3.webp",
+          "caption": "تجميع المضخات على التوالي"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-4.webp",
+          "caption": "مسارات التدفق للتوالي"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-5.webp",
+          "caption": "تجميع المضخات على التوازي"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-6.webp",
+          "caption": "مسارات التدفق للتوازي"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-7.webp",
+          "caption": "محاكاة المروحة المفردة"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-8.webp",
+          "caption": "محاكاة المراوح على التوالي"
+        },
+        {
+          "src": "assets/media/university/academic-pump-cfd-9.webp",
+          "caption": "محاكاة المراوح على التوازي"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-pressure-vessel",
+      "academic": true,
+      "title": "التحليل الإنشائي لأوعية الضغط",
+      "short": "تحليل أوعية الضغط",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2023",
+      "timeline": "أبريل 2023، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "دراسات مقارنة بالعناصر المحددة لهندسة أوعية الضغط والتقويات وتكوينات الدعامات.",
+      "summary": "دراسة أثر تغييرات هندسة أوعية الضغط على توزيع الإجهاد، شملت انحناء النهايات وحجم الوعاء والفلنجات وأحزمة التقوية وهندسة الدعامات تحت حمل ضغط محاكى.",
+      "features": [
+        "مقارنة أشكال النهايات والزوايا.",
+        "دراسة حجم الوعاء وتكوينات الفلنجات.",
+        "دراسة أحزمة التقوية والدعامات البديلة.",
+        "مراجعة توزيع إجهاد فون ميزس بين النماذج."
+      ],
+      "results": "توفر الدراسة مخططات إجهاد مقارنة لاستكشاف التصميم دون إثبات المطابقة للمعايير أو اعتماد تصنيف الضغط أو حدود التشغيل الآمن.",
+      "tags": [
+        "SolidWorks Simulation",
+        "FEA",
+        "Stress Analysis",
+        "Design Iteration"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-pressure-vessel-cover.webp",
+      "cover": "assets/media/university/academic-pressure-vessel-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-pressure-vessel-1.webp",
+          "caption": "دراسة الإجهاد للنموذج الأساسي"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-2.webp",
+          "caption": "هندسة نهايات بديلة"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-3.webp",
+          "caption": "تغيير حجم الوعاء"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-4.webp",
+          "caption": "دراسة الفلنجات"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-5.webp",
+          "caption": "تكوين أحزمة التقوية"
+        },
+        {
+          "src": "assets/media/university/academic-pressure-vessel-6.webp",
+          "caption": "تكوين دعامات بديل"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-reciprocating-pump",
+      "academic": true,
+      "title": "تصميم آلية مضخة ترددية والتحليل الديناميكي",
+      "short": "مضخة ترددية",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2025",
+      "timeline": "أبريل 2025، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "دمج نمذجة الآلية وحساب قوى الضغط وتحليل الحركة لمضخة ترددية.",
+      "summary": "تصميم آلية مضخة ترددية أكاديمية ودراسة العلاقة بين الضغط وهندسة المكبس ومتطلبات التدفق وحمل المحرك، مع تطبيق حسابات الموضع والسرعة والتسارع والقوى وإعداد محاكاة الحركة.",
+      "features": [
+        "تحديد مستهدفات الضغط والتدفق الاسمية.",
+        "حساب قوة المكبس من الضغط ومساحة المقطع.",
+        "تطبيق حركيات الحلقة المتجهة وتحليل القوى الديناميكية.",
+        "دراسة عزم المحرك ومخرجات الاستجابة الحركية."
+      ],
+      "results": "استخدمت الدراسة 5 بار و7 لتر/ثانية كمدخلات تصميم لا كأداء مقاس. تتطلب نتائج السرعة العالية وتحديد المحرك تحققًا إضافيًا.",
+      "tags": [
+        "SolidWorks Motion",
+        "Kinematics",
+        "Machine Dynamics",
+        "Motor Sizing",
+        "Mechanism Design"
+      ],
+      "metrics": [
+        {
+          "value": "5 bar",
+          "label": "الضغط التصميمي المستهدف"
+        },
+        {
+          "value": "7 L/s",
+          "label": "التدفق التصميمي المستهدف"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-reciprocating-pump-cover.webp",
+      "cover": "assets/media/university/academic-reciprocating-pump-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-1.webp",
+          "caption": "تجميع آلية المضخة الترددية"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-2.webp",
+          "caption": "اتجاه بديل للآلية"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-3.webp",
+          "caption": "إعداد دراسة الحركة"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-4.webp",
+          "caption": "منحنى السرعة الزاوية"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-5.webp",
+          "caption": "منحنى التسارع الزاوي"
+        },
+        {
+          "src": "assets/media/university/academic-reciprocating-pump-6.webp",
+          "caption": "إعداد دراسة الحركة تحت الحمل"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-water-tank",
+      "academic": true,
+      "title": "تحليل خزان مياه فولاذي تحت أحمال هيدروستاتيكية وزلزالية",
+      "short": "تحليل خزان مياه فولاذي",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "2023",
+      "timeline": "أبريل 2023، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "دراسة أكاديمية بالعناصر المحددة لخزان فولاذي مرتفع وإطاره الداعم.",
+      "summary": "استكشاف الاستجابة الإنشائية لخزان مياه فولاذي وإطاره الداعم باستخدام المحاكاة العددية، وتوثيق دراسات الأحمال الهيدروستاتيكية والزلزالية ومخرجات نماذج العناصر القشرية والعوارض والإجهاد والإزاحة.",
+      "features": [
+        "إعداد نموذج الخزان والإطار الإنشائي.",
+        "مراجعة مخرجات العناصر القشرية والعوارض.",
+        "دراسة مخططات الإجهاد والإزاحة في حالات التحميل المحاكية."
+      ],
+      "results": "توثق الدراسة مخرجات محاكاة أكاديمية وليست تصميمًا زلزاليًا معتمدًا أو موافقة إنشائية.",
+      "tags": [
+        "SolidWorks Simulation",
+        "FEA",
+        "Beam Modelling",
+        "Shell Modelling",
+        "Structural Analysis"
+      ],
+      "metrics": [],
+      "thumbnail": "assets/media/university/academic-water-tank-cover.webp",
+      "cover": "assets/media/university/academic-water-tank-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-water-tank-1.webp",
+          "caption": "شبكة الخزان والإطار الداعم"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-2.webp",
+          "caption": "عرض القوى والإجهاد في الإطار"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-3.webp",
+          "caption": "دراسة إجهاد الخزان"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-4.webp",
+          "caption": "دراسة إزاحة الخزان"
+        },
+        {
+          "src": "assets/media/university/academic-water-tank-5.webp",
+          "caption": "مخرجات إجهاد الإطار"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    },
+    {
+      "id": "academic-cad-gallery",
+      "academic": true,
+      "title": "مجموعة نماذج CAD ورسومات هندسية ميكانيكية",
+      "short": "مجموعة النماذج الميكانيكية",
+      "category": "التصميم الميكانيكي والتحليل بالعناصر المحددة",
+      "year": "أعمال جامعية",
+      "timeline": "أعمال جامعية، جامعة كارابوك",
+      "role": "مشروع هندسي جامعي",
+      "status": "عمل أكاديمي",
+      "tagline": "نماذج مكونات مختارة وتمارين رسومات هندسية بالأبعاد من واجبين جامعيين.",
+      "summary": "مجموعة مختارة من تمارين نمذجة المكونات الميكانيكية والرسومات الهندسية خلال الدراسة الجامعية. يوثق التقريران الأصليان 30 مثالًا تشمل الحوامل والمبيتات ذات الفلنجات والعجلات والمكونات ذات التفاصيل الداخلية.",
+      "features": [
+        "قراءة رسومات المكونات ذات الأبعاد.",
+        "إنشاء نماذج ثلاثية الأبعاد ومساقط هندسية.",
+        "استخدام المقاطع لتوضيح التفاصيل الداخلية.",
+        "اختيار أمثلة ممثلة للعرض في المعرض."
+      ],
+      "results": "تعرض المجموعة أساسيات النمذجة والرسم الهندسي بوصفها تمارين جامعية لا ادعاءً بابتكار منتجات أصلية أو تأهيلها للتصنيع.",
+      "tags": [
+        "SolidWorks",
+        "3D CAD",
+        "Technical Drawings",
+        "Orthographic Views",
+        "Section Views"
+      ],
+      "metrics": [
+        {
+          "value": "30",
+          "label": "أمثلة مكونات موثقة"
+        }
+      ],
+      "thumbnail": "assets/media/university/academic-cad-gallery-cover.webp",
+      "cover": "assets/media/university/academic-cad-gallery-cover.webp",
+      "gallery": [
+        {
+          "src": "assets/media/university/academic-cad-gallery-1.webp",
+          "caption": "مبيت ذو فلنجات ومقطع هندسي"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-2.webp",
+          "caption": "مبيت وأبعاد هندسية"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-3.webp",
+          "caption": "عجلة ذات أذرع ومقطع هندسي"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-4.webp",
+          "caption": "حامل مقوى"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-5.webp",
+          "caption": "رسم مكون ملولب"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-6.webp",
+          "caption": "رسم مكون ربط"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-7.webp",
+          "caption": "رسم مبيت ميكانيكي"
+        },
+        {
+          "src": "assets/media/university/academic-cad-gallery-8.webp",
+          "caption": "رسم مكون تثبيت"
+        }
+      ],
+      "githubUrl": "",
+      "cadUrl": "",
+      "videoUrl": ""
+    }
+  ]
+}
