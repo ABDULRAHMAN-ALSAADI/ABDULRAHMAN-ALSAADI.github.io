@@ -180,8 +180,8 @@
           "label": "Experience type"
         },
         {
-          "value": "5-DOF",
-          "label": "Arm design"
+          "value": "2",
+          "label": "Control interfaces — web & mobile"
         },
         {
           "label": "Design payload",
