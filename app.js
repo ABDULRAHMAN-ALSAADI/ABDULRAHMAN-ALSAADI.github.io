@@ -141,9 +141,9 @@ const it = (t, s, d, pts) => `<div class="it reveal"><div class="meta"><b>${esc(
 function certKind(c){return ["credential","professional","course"].includes(c.kind)?c.kind:"course";}
 function certKindLabel(kind){return T({credential:"certBadgeCredential",professional:"certBadgeProfessional",course:"certBadgeCourse"}[kind]);}
 const certCard = (c, i) => `<div class="certcard reveal" data-cert-kind="${certKind(c)}" style="transition-delay:${(i % 4) * 70}ms"><button type="button" class="cthumb" ${c.image ? `data-lbsrc="${esc(safeImg(c.image))}"` : 'disabled aria-hidden="true" tabindex="-1"'} aria-label="${LANG === 'ar' ? T('enlarge') + ' ' + T('certificateWord') + ' ' + esc(c.title) : T('enlarge') + ' ' + esc(c.title) + ' ' + T('certificateWord')}" style="${c.image ? '' : 'cursor:default'}">${img(c.image, c.title, T('certificateWord'))}</button><div class="cb"><b>${esc(c.title)}</b><span class="mu">${esc(c.issuer)}</span>${c.date ? `<span class="cd">${esc(c.date)}</span>` : ''}<span class="certBadge">${esc(certKindLabel(certKind(c)))}</span></div></div>`;
-const experienceListCard = (e, i) => `<a class="card reveal" style="transition-delay:${(i % 3) * 90}ms" href="#/experience/${esc(e.id)}">
+const experienceListCard = (e, i) => `<a class="card reveal experienceCard" style="transition-delay:${(i % 3) * 90}ms" href="#/experience/${esc(e.id)}">
 <div class="thumb">${img(e.thumbnail || e.image, e.title || e.company, e.role)}<span class="chip">${esc(e.category || T('industry'))}</span></div>
-<div class="b"><div class="meta mono"><span>${esc(e.year || e.period)}</span><span class="view">${T('viewExperience')} &#8594;</span></div>${e.status ? `<div class="state">${esc(e.status)}</div>` : ''}<h3>${esc(e.title || e.role)}</h3>
+<div class="b"><div class="meta mono"><span>${esc(e.year || e.period)}</span><span class="view">${T('viewExperience')} &#8594;</span></div><h3>${esc(e.title || e.role)}</h3>
 <p class="mu">${esc(e.tagline || e.company)}</p>${e.metrics?.length ? `<div class="cardMetrics">${e.metrics.slice(0, 2).map(m => `<span><b>${esc(m.value)}</b><small>${esc(m.label)}</small></span>`).join('')}</div>` : ''}<div class="tags">${(e.tags || []).slice(0, 4).map(t => `<span>${esc(t)}</span>`).join('')}</div></div></a>`;
 const grp = (h, body) => body ? `<div class="cols"><h3 class="reveal">${h}</h3><div>${body}</div></div>` : '';
 function richText(text) {
@@ -206,7 +206,7 @@ function home() {
 <div class="heroBody"><div><p class="hi">${esc(SITE.name)} <span class="heroNameSep" aria-hidden="true">/</span> ${tr("Engineering portfolio","ملف الأعمال الهندسية")}</p><h1><span>${esc(role[0])}</span><span class="grad">${esc(role.slice(1).join(' '))}</span></h1></div>
 <aside><span class="k heroK">${esc(SITE.location)} <span class="heroNameSep" aria-hidden="true">·</span> ${tr("Open to engineering opportunities","متاح للفرص الهندسية")}</span><h3>${esc(SITE.pitch)}</h3><p class="mu">${esc(SITE.sub)}</p><div class="heroActions">${arrow(T('viewProjects'), '#/featured', 'g')}${heroCv}</div></aside></div>
 <div class="pillars">${(SITE.pillars || []).map((p, i) => `<div><b>#0${i + 1}</b><br>${esc(p)}</div>`).join('')}</div></div></header>
-<main id="mainContent" class="homeMain"><section class="wrap proofSection" aria-label="${tr("Engineering achievements","الإنجازات الهندسية")}">${statsRow()}</section>
+<main id="mainContent" class="homeMain">
 <section class="wrap sec featured" id="featured"><span class="k reveal">${T('selectedWork')}</span><h2 class="reveal" style="margin-bottom:14px">${T('featured')}</h2><p class="mu reveal sectionLead">${T('featuredLead')}</p><div class="grid featuredGrid">${featured.map(card).join('')}</div><div class="collectionLinks"><a href="#/projects">${tr("Explore engineering projects","استعرض المشاريع الهندسية")} <span>${DATA.length} &#8594;</span></a><a href="#/projects/university">${universityText()} <span>${ACADEMIC.length} &#8594;</span></a></div></section>
 <section class="wrap sec experienceHome" id="industry"><span class="k reveal">${T("career")}</span><h2 class="reveal">${T("industry")}</h2>${backgroundExperienceTeaser()}</section>
 <section class="wrap sec" id="about"><div class="cols" style="border:0;padding:0"><div><span class="k reveal">${T('about')}</span><h2 class="reveal">${esc(SITE.aboutTitle)}</h2></div><div><p class="reveal" style="font-size:clamp(17px,1.5vw,20px)">${esc(SITE.summary)}</p><div id="resume" class="resumeAnchor"><span class="k resumeLabel">${T('resumes')}</span>${cvBtns()}</div></div></div>
@@ -234,7 +234,7 @@ function archive(cat, group = projectGroup()) {
 function experienceArchive() {
   return `<header class="hero" style="min-height:0"><div class="wrap wide">${nav('experience')}<span class="k reveal" style="margin-top:clamp(36px,6vw,64px)">${T('industry')}</span><h1 class="reveal" style="font-size:clamp(56px,10vw,132px)">${T('experience')}</h1>
 <p class="mu reveal" style="max-width:52ch;margin-top:20px">${T('experienceLead')}</p></div></header>
-<section class="wrap"><div class="grid experienceArchiveGrid">${EXP.map(experienceListCard).join('')}</div></section><div style="height:clamp(56px,8vw,96px)"></div>${foot()}`;
+<section class="wrap experienceArchiveSection"><div class="grid experienceArchiveGrid">${EXP.map(experienceListCard).join('')}</div></section><div style="height:clamp(56px,8vw,96px)"></div>${foot()}`;
 }
 function experienceDetail(id) {
   const e = EXP.find(x => x.id === id);
