@@ -127,10 +127,10 @@ ${socials()}${langBtn()}<span class="navcta">${arrow(T('contact'), mail)}</span>
 <button class="ib st menuBtn" type="button" aria-label="${T('openMenu')}" aria-expanded="false" aria-controls="mpanel" data-menu>${ICON.menu}</button></div>
 <div class="mpanel" id="mpanel"><a href="#/">${T('home')}</a><a href="#/about" data-about>${T('about')}</a><a href="#/projects">${T('projects')}</a><a href="#/experience">${T('experience')}</a><a href="#/certifications" data-certs-link>${T('certNav')}</a>${langBtn(true)}<a class="mc" href="${esc(safeUrl(mail))}">${T('contact')}</a></div></nav>`;
 
-const card = (p, i) => `<a class="card reveal" style="transition-delay:${(i % 3) * 90}ms" href="${esc(projectPath(p))}">
+const card = (p, i) => `<a class="card reveal${p.academic ? ' academicCard' : ''}" style="transition-delay:${(i % 3) * 90}ms" href="${esc(projectPath(p))}">
 <div class="thumb">${img(p.thumbnail, p.title, p.short)}<span class="chip">${esc(p.category)}</span></div>
-<div class="b"><div class="meta mono"><span>${esc(p.year)}</span><span class="view">${T('viewProject')} &#8594;</span></div>${p.status ? `<div class="state">${esc(p.status)}</div>` : ''}<h3>${esc(p.title)}</h3>
-<p class="mu">${esc(p.tagline)}</p>${p.metrics?.length ? `<div class="cardMetrics">${p.metrics.slice(0, 2).map(m => `<span><b>${esc(m.value)}</b><small>${esc(m.label)}</small></span>`).join('')}</div>` : ''}<div class="tags">${(p.tags || []).slice(0, 4).map(t => `<span>${esc(t)}</span>`).join('')}</div></div></a>`;
+<div class="b"><div class="meta mono"><span>${esc(p.year)}</span><span class="view" aria-hidden="true">${T('viewProject')} &#8594;</span></div>${p.status ? `<div class="state">${esc(p.status)}</div>` : ''}<h3>${esc(p.title)}</h3>
+<p class="mu">${esc(p.tagline)}</p>${p.metrics?.length ? `<div class="cardMetrics">${p.metrics.slice(0, 3).map(m => `<span><b>${esc(m.value)}</b><small>${esc(m.label)}</small></span>`).join('')}</div>` : ''}<div class="tags">${(p.tags || []).slice(0, 4).map(t => `<span>${esc(t)}</span>`).join('')}</div></div></a>`;
 
 const foot = () => `<section class="cta reveal"><span class="k">${T('connect')}</span><h2>${T('cta')}</h2>${arrow(T('email'), mail, 'g')}${socials('lg')}</section>
 <footer class="wrap"><span class="footerIdentity"><span class="musnadMark" title="${T('musnadLabel')}" aria-label="${T('musnadLabel')}">𐩧𐩥𐩨𐩥𐩩</span><span data-secret>&copy; ${new Date().getFullYear()} ${esc(SITE.name)}${SITE.location ? ' &middot; ' + esc(SITE.location) : ''}</span></span><span class="fl"><a href="${esc(safeUrl(SITE.github))}" target="_blank" rel="noopener noreferrer">GitHub</a><a href="${esc(safeUrl(SITE.linkedin))}" target="_blank" rel="noopener noreferrer">LinkedIn</a></span></footer>`;
@@ -199,25 +199,24 @@ function certSection(){
 function home() {
   const role = String(SITE.role || '').split(' ');
   const featured = DATA.slice(0, 3);
-  const more = DATA.slice(3, 8), mid = (more.length - 1) / 2;
-  const primaryCv = (SITE.cv || []).find(c => /robot|mechatronics/i.test(c.label || '') && c.file) || (SITE.cv || []).find(c => c.file);
+  const tr = (en, ar) => LANG === 'ar' ? ar : en;
   const heroCv = (SITE.cv || []).some(c => c.file) ? `<a class="pill o" href="#/resume">${T('downloadResume')}<em>&#8595;</em></a>` : '';
-  return `<header class="hero" data-spot>${SITE.heroArt ? heroArt() : ''}<div class="spot"></div>
+  return `<header class="hero homeHero" data-spot>${SITE.heroArt ? heroArt() : ''}<div class="spot"></div>
 <div class="wrap wide hin">${nav('home')}
-<div class="heroBody"><div><p class="hi">${esc(SITE.hello)}</p><h1><span>${esc(role[0])}</span><span class="grad">${esc(role.slice(1).join(' '))}</span></h1></div>
-<aside><span class="k heroK">${esc(SITE.location)}</span><h3>${esc(SITE.pitch)}</h3><p class="mu">${esc(SITE.sub)}</p><div class="heroActions">${arrow(T('viewProjects'), '#/projects', 'g')}${heroCv}</div></aside></div>
+<div class="heroBody"><div><p class="hi">${esc(SITE.name)} <span class="heroNameSep" aria-hidden="true">/</span> ${tr("Engineering portfolio","ملف الأعمال الهندسية")}</p><h1><span>${esc(role[0])}</span><span class="grad">${esc(role.slice(1).join(' '))}</span></h1></div>
+<aside><span class="k heroK">${esc(SITE.location)} <span class="heroNameSep" aria-hidden="true">·</span> ${tr("Open to engineering opportunities","متاح للفرص الهندسية")}</span><h3>${esc(SITE.pitch)}</h3><p class="mu">${esc(SITE.sub)}</p><div class="heroActions">${arrow(T('viewProjects'), '#/featured', 'g')}${heroCv}</div></aside></div>
 <div class="pillars">${(SITE.pillars || []).map((p, i) => `<div><b>#0${i + 1}</b><br>${esc(p)}</div>`).join('')}</div></div></header>
-<div class="wrap"><div class="strip"><small>${T('coreStack')}</small><ul>${(SITE.stack || []).map(s => `<li>${esc(s)}</li>`).join('')}</ul></div></div>
-<section class="wrap sec featured"><span class="k reveal">${T('selectedWork')}</span><h2 class="reveal" style="margin-bottom:14px">${T('featured')}</h2><p class="mu reveal sectionLead">${T('featuredLead')}</p><div class="grid featuredGrid">${featured.map(card).join('')}</div></section>
+<main id="mainContent" class="homeMain"><section class="wrap proofSection" aria-label="${tr("Engineering achievements","الإنجازات الهندسية")}">${statsRow()}</section>
+<section class="wrap sec featured" id="featured"><span class="k reveal">${T('selectedWork')}</span><h2 class="reveal" style="margin-bottom:14px">${T('featured')}</h2><p class="mu reveal sectionLead">${T('featuredLead')}</p><div class="grid featuredGrid">${featured.map(card).join('')}</div><div class="collectionLinks"><a href="#/projects">${tr("Explore engineering projects","استعرض المشاريع الهندسية")} <span>${DATA.length} &#8594;</span></a><a href="#/projects/university">${universityText()} <span>${ACADEMIC.length} &#8594;</span></a></div></section>
+<section class="wrap sec experienceHome" id="industry"><span class="k reveal">${T("career")}</span><h2 class="reveal">${T("industry")}</h2>${backgroundExperienceTeaser()}</section>
 <section class="wrap sec" id="about"><div class="cols" style="border:0;padding:0"><div><span class="k reveal">${T('about')}</span><h2 class="reveal">${esc(SITE.aboutTitle)}</h2></div><div><p class="reveal" style="font-size:clamp(17px,1.5vw,20px)">${esc(SITE.summary)}</p><div id="resume" class="resumeAnchor"><span class="k resumeLabel">${T('resumes')}</span>${cvBtns()}</div></div></div>
-${statsRow()}
+<div class="strip compactStack"><small>${T("coreStack")}</small><ul>${(SITE.stack || []).map(s => `<li>${esc(s)}</li>`).join("")}</ul></div>
 <div class="skills">${(C.skills || []).map((g, i) => `<div class="reveal" style="transition-delay:${i * 70}ms"><h3>${esc(g.group)}</h3><div class="tags">${(g.items || []).map(x => `<span>${esc(x)}</span>`).join('')}</div></div>`).join('')}</div></section>
 <section class="wrap sec backgroundSection"><span class="k reveal">${T('career')}</span><h2 class="reveal" style="margin-bottom:24px">${T('background')}</h2>
-${backgroundExperienceTeaser()}
 ${grp(T('education'), (C.education || []).map(e => it(e.degree, e.school, e.period)).join(''))}
 ${certSection()}
 ${grp(T('languages'), (C.languages || []).map(e => it(e.name, e.level, '')).join(''))}</section>
-${more.length ? `<section class="wrap fanWrap moreWork"><span class="k reveal">${T('moreWork')}</span><h2 class="reveal">${T('explore')}</h2><div class="fan">${more.map((p, i) => { const o = i - mid; return `<a class="reveal" href="#/projects/${esc(p.id)}" style="transform:rotateY(${-o * 11}deg) translateY(${Math.abs(o) * 14}px)">${img(p.thumbnail, p.title, p.short)}<em>${esc(p.short || p.title)}</em></a>`; }).join('')}</div>${arrow(T('allProjects'), '#/projects')}</section>` : ''}${foot()}`;
+</main>${foot()}`;
 }
 function archive(cat, group = projectGroup()) {
   const pool = group === 'university' ? ACADEMIC : DATA;
@@ -256,7 +255,7 @@ ${sec(T('contribution'), e.contribution?.length ? `<ul>${e.contribution.map(x =>
 ${sec(T('features'), e.features?.length ? `<ul>${e.features.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : (e.points?.length ? `<ul>${e.points.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : ''))}
 ${sec(T('architecture'), richText(e.architecture))}
 ${sec(T('results'), richText(e.results) + (e.metrics?.length ? `<div class="metrics" style="margin-top:${e.results ? '24px' : '0'}">${e.metrics.map(m => `<div><b>${esc(m.value)}</b><span>${esc(m.label)}</span></div>`).join('')}</div>` : ''))}
-${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('gallery')}</h3><div class="gal">${GALI.map((g, gi) => `<figure class="gitem reveal" style="transition-delay:${(gi % 3) * 80}ms"><button type="button" data-gi="${gi}" aria-label="${T('enlarge')} ${T('imageWord')} ${gi + 1} ${T('ofWord')} ${GALI.length}">${img(g.src, e.company || e.title, '', g.pos)}</button>${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}</figure>`).join('')}</div></div>` : ''}
+${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('gallery')}</h3><div class="gal">${GALI.map((g, gi) => `<figure class="gitem reveal" style="transition-delay:${(gi % 3) * 80}ms"><button type="button" data-gi="${gi}" aria-label="${T('enlarge')} ${T('imageWord')} ${gi + 1} ${T('ofWord')} ${GALI.length}">${img(g.src, g.caption || e.company || e.title, '', g.pos)}</button>${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}</figure>`).join('')}</div></div>` : ''}
 <div class="pn" style="grid-template-columns:1fr"><a href="#/experience"><small class="mu">&#8592; ${T('backExperience')}</small><h3>${T('experience')}</h3></a></div></main>${foot()}</div>`;
 }
 
@@ -271,7 +270,7 @@ function detail(id, group = 'main') {
   const links = [[T('github'), p.githubUrl], [T('demo'), p.videoUrl], [T('cad'), p.cadUrl]].filter(l => l[1]).map(l => `<a href="${esc(safeUrl(l[1]))}" target="_blank" rel="noopener noreferrer">${l[0]}</a>`).join('') || `<span class="mu">${T('coming')}</span>`;
   const sec = (h, body) => body ? `<div class="cols"><h3 class="reveal">${h}</h3><div>${body}</div></div>` : '';
   const stackPreview = (p.tags || []).slice(0, 5).join(', ') + ((p.tags || []).length > 5 ? ` +${p.tags.length - 5} ${T('moreItems')}` : '');
-  return `<div class="proj" style="--acc:${A.acc};--acc-soft:${A.soft};--acc-bd:${A.bd};--acc-glow:${A.glow}">
+  return `<div class="proj${p.academic ? ' academicProject' : ''}" style="--acc:${A.acc};--acc-soft:${A.soft};--acc-bd:${A.bd};--acc-glow:${A.glow}">
 <div class="cover">${img(p.cover || p.thumbnail, p.title, p.short, p.coverPos)}<div class="wrap wide navwrap">${nav('projects')}</div>
 <div class="ttl wrap wide"><span class="k">${catIcon(p.category)}${esc(p.category)}</span><h1 style="font-size:clamp(42px,8vw,108px)">${esc(p.title)}</h1></div></div>
 <main class="wrap">${p.academic ? `<div style="padding-top:28px">${arrow(universityText(), back, 'o')}</div>` : ''}<p class="mu" style="font-size:clamp(18px,1.6vw,22px);max-width:60ch;margin-top:32px">${esc(p.tagline)}</p>${p.status ? `<div class="statusWrap"><span class="statusBadge">${esc(p.status)}</span></div>` : ''}
@@ -282,18 +281,19 @@ ${sec(T('contribution'), p.contribution?.length ? `<ul>${p.contribution.map(x =>
 ${sec(T('features'), p.features?.length ? `<ul>${p.features.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : '')}
 ${sec(T('architecture'), richText(p.architecture))}
 ${sec(T('results'), richText(p.results) + (p.metrics?.length ? `<div class="metrics" style="margin-top:${p.results ? '24px' : '0'}">${p.metrics.map(m => `<div><b>${esc(m.value)}</b><span>${esc(m.label)}</span></div>`).join('')}</div>` : ''))}
-${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('gallery')}</h3><div class="gal">${GALI.map((g, gi) => `<figure class="gitem reveal" style="transition-delay:${(gi % 3) * 80}ms"><button type="button" data-gi="${gi}" aria-label="${T('enlarge')} ${T('imageWord')} ${gi + 1} ${T('ofWord')} ${GALI.length}">${img(g.src, p.title, '', g.pos)}</button>${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}</figure>`).join('')}</div></div>` : ''}
+${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('gallery')}</h3><div class="gal">${GALI.map((g, gi) => `<figure class="gitem reveal" style="transition-delay:${(gi % 3) * 80}ms"><button type="button" data-gi="${gi}" aria-label="${T('enlarge')} ${T('imageWord')} ${gi + 1} ${T('ofWord')} ${GALI.length}">${img(g.src, g.caption || p.title, '', g.pos)}</button>${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}</figure>`).join('')}</div></div>` : ''}
 <div class="pn"><a href="${esc(projectPath(prev))}"><small class="mu">&#8592; ${T('previous')}</small><h3>${esc(prev.title)}</h3></a><a href="${esc(projectPath(next))}"><small class="mu">${T('next')} &#8594;</small><h3>${esc(next.title)}</h3></a></div></main>${foot()}</div>`;
 }
 
 /* ---------- routing ---------- */
-const isHome = () => !location.hash || location.hash === '#/' || location.hash.startsWith('#/about') || location.hash.startsWith('#/resume') || location.hash.startsWith('#/certifications');
+const isHome = () => !location.hash || location.hash === '#/' || location.hash.startsWith('#/about') || location.hash.startsWith('#/resume') || location.hash.startsWith('#/certifications') || location.hash === '#/featured';
 function go(id) { document.getElementById(id)?.scrollIntoView({ behavior: REDUCED ? 'auto' : 'smooth' }); }
 function render() {
   applyLangMeta();
   const h = location.hash.replace(/^#\/?/, '').split('/');
   let scrollTarget = '';
-  if (h[0] === 'about') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('about'); scrollTarget = 'about'; }
+  if (h[0] === 'featured') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('featured'); scrollTarget = 'featured'; }
+  else if (h[0] === 'about') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('about'); scrollTarget = 'about'; }
   else if (h[0] === 'resume') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('downloadResume'); scrollTarget = 'resume'; }
   else if (h[0] === 'certifications') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('certs'); scrollTarget = 'certifications'; }
   else if (h[0] === 'experience' && h[1]) { const id = decodeURIComponent(h[1]); app.innerHTML = experienceDetail(id); document.title = (EXP.find(e => e.id === id)?.title || T('experience')) + ' | ' + SITE.name; }
@@ -327,14 +327,16 @@ function renderStick() {
   let t = false;
   addEventListener('scroll', () => { if (t) return; t = true; requestAnimationFrame(() => { $('#stick').classList.toggle('show', scrollY > 480); t = false; }); }, { passive: true });
 }
+let lbReturnFocus = null;
 function openLB() {
   if (!GAL.length) return;
   const im = $('#lb img'); im.src = GAL[LBI]; im.alt = T('imageWord') + ' ' + (LBI + 1) + ' ' + T('ofWord') + ' ' + GAL.length;
   $('#lbCount').textContent = (LBI + 1) + ' / ' + GAL.length;
   document.querySelectorAll('[data-lbnav]').forEach(b => b.style.display = GAL.length > 1 ? 'grid' : 'none');
-  $('#lb').classList.add('on'); $('#lbClose').focus();
+  const dialog = $('#lb');
+  if (!dialog.classList.contains('on')) { lbReturnFocus = document.activeElement; dialog.classList.add('on'); app.inert = true; $('#stick').inert = true; $('#toTop').inert = true; $('#lbClose').focus(); }
 }
-function closeLB() { $('#lb').classList.remove('on'); }
+function closeLB() { $('#lb').classList.remove('on'); app.inert = false; $('#stick').inert = false; $('#toTop').inert = false; if (lbReturnFocus?.isConnected) lbReturnFocus.focus(); lbReturnFocus = null; }
 
 let secretN = 0, secretT;
 function applyCertFilter(button){
@@ -355,7 +357,7 @@ document.addEventListener('click', e => {
   const certTab = t.closest('[data-cert-filter]');
   if (certTab) { applyCertFilter(certTab); return; }
   const f = t.closest('[data-c]');
-  if (f) { const y = scrollY; app.innerHTML = archive(f.dataset.c); afterRender(); scrollTo(0, y); return; }
+  if (f) { const y = scrollY, selected = f.dataset.c; app.innerHTML = archive(selected); afterRender(); scrollTo(0, y); const active = [...app.querySelectorAll('[data-c]')].find(b => b.dataset.c === selected); active?.focus({preventScroll:true}); return; }
   const g = t.closest('[data-gi]'); if (g) { LBI = +g.dataset.gi; openLB(); return; }
   const ls = t.closest('[data-lbsrc]'); if (ls && !ls.disabled) { GAL = [ls.dataset.lbsrc]; LBI = 0; openLB(); return; }
   const n = t.closest('[data-lbnav]'); if (n) { LBI = (LBI + +n.dataset.lbnav + GAL.length) % GAL.length; openLB(); return; }
@@ -373,6 +375,7 @@ document.addEventListener('click', e => {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMenu();
   if (!$('#lb').classList.contains('on')) return;
+  if (e.key === 'Tab') { const controls = [...$('#lb').querySelectorAll('button')].filter(b => b.getClientRects().length); const first = controls[0], last = controls[controls.length - 1]; if (first && last && ((e.shiftKey && document.activeElement === first) || (!e.shiftKey && document.activeElement === last))) { e.preventDefault(); (e.shiftKey ? last : first).focus(); } }
   if (e.key === 'Escape') closeLB();
   if (e.key === 'ArrowLeft') { LBI = (LBI - 1 + GAL.length) % GAL.length; openLB(); }
   if (e.key === 'ArrowRight') { LBI = (LBI + 1) % GAL.length; openLB(); }
