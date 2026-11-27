@@ -725,3 +725,10 @@ html[dir='rtl'] .homeHero h1{font-size:clamp(50px,6.5vw,100px)!important}
 .experienceCard .cardMetrics b{font-size:clamp(18px,1.65vw,23px);overflow-wrap:normal}
 .experienceCard .tags{margin-top:0}
 @media(max-width:800px){#about h2,html[dir='rtl'] #about h2{font-size:clamp(28px,5.5vw,38px);max-width:26ch}.experienceArchiveSection{padding-top:28px}}
+
+/* Keep detail-page metrics contained, including long text values. */
+.metrics{grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:16px}
+.metrics div{min-width:0;padding:clamp(14px,2vw,24px);container-type:inline-size}
+.metrics b{font-size:clamp(24px,3vw,40px);font-size:clamp(20px,15cqi,40px);line-height:1.15;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.metrics span{display:block;margin-top:6px;line-height:1.5;overflow-wrap:anywhere}
+html[dir='rtl'] .metrics b,html[dir='rtl'] .cardMetrics b{unicode-bidi:plaintext}
