@@ -715,3 +715,13 @@ html[dir='rtl'] .homeHero h1{font-size:clamp(50px,6.5vw,100px)!important}
 @media(max-width:800px){.homeHero .heroBody{padding-top:26px;gap:24px!important}.homeHero .pillars{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proofSection .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.homeMain .sec{padding-block:44px}.homeHero .heroBody aside p{font-size:16px}.homeHero .heroArt{opacity:.65}html[dir='ltr'] .homeHero h1{font-size:clamp(42px,11.2vw,78px)}html[dir='rtl'] .homeHero h1{font-size:clamp(44px,12vw,78px)!important}.cardMetrics b{font-size:21px}}
 @media(max-width:520px){.collectionLinks{grid-template-columns:1fr}.collectionLinks a{padding:14px 15px}.homeHero .pillars{gap:10px}.homeHero .pillars div{font-size:12.5px}.proofSection .stats b{font-size:clamp(25px,7.5vw,38px)}.proofSection .stats span{font-size:12px}.homeHero .heroActions .pill{max-width:100%;white-space:normal}.cardMetrics small{font-size:10.5px}.compactStack ul{gap:10px 18px}}
 @media(prefers-reduced-motion:reduce){.collectionLinks a{transition:none}.reveal{transform:none}}
+
+/* Targeted visual refinements following owner review. */
+#about h2,html[dir='rtl'] #about h2{font-size:clamp(28px,3.1vw,44px);line-height:1.15;max-width:22ch;overflow-wrap:normal;text-wrap:balance}
+.experienceArchiveSection{padding-top:clamp(28px,4vw,56px)}
+.experienceCard .b{gap:12px}
+.experienceCard h3,html[dir='rtl'] .experienceCard h3{font-size:clamp(25px,2.15vw,32px);line-height:1.15}
+.experienceCard .cardMetrics{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:auto}
+.experienceCard .cardMetrics b{font-size:clamp(18px,1.65vw,23px);overflow-wrap:normal}
+.experienceCard .tags{margin-top:0}
+@media(max-width:800px){#about h2,html[dir='rtl'] #about h2{font-size:clamp(28px,5.5vw,38px);max-width:26ch}.experienceArchiveSection{padding-top:28px}}
