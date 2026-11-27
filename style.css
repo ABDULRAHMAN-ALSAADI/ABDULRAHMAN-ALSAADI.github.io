@@ -676,3 +676,42 @@ html[dir='rtl'] .logo.logoAr span+span{
 .projectCollections a:hover,.projectCollections a:focus-visible{color:var(--tx);border-color:var(--em)}
 .projectCollections a.on{background:var(--em);border-color:var(--em);color:#04150d}
 .projectCollections a span{font-size:11px;opacity:.8}
+
+/* Recruiter-first refinement — scoped to preserve the existing design system. */
+.homeHero{min-height:auto;padding-bottom:clamp(24px,3vw,42px)}
+.homeHero .heroBody{margin-top:0;padding-top:clamp(32px,5vw,70px);padding-bottom:10px}
+.homeHero .pillars{margin-top:clamp(24px,3vw,38px);gap:16px}
+.homeHero .pillars div{font-size:14px;padding-top:10px}
+.homeHero .hi{font-size:clamp(15px,1.4vw,19px);color:var(--tx)}
+.heroNameSep{color:var(--em2);margin-inline:4px}
+html[dir='ltr'] .homeHero h1{font-size:clamp(52px,6.6vw,106px);line-height:.96;overflow-wrap:normal}
+html[dir='rtl'] .homeHero h1{font-size:clamp(50px,6.5vw,100px)!important}
+.homeHero .heroActions{margin-top:18px}
+.homeMain .sec{padding-block:clamp(44px,5.4vw,78px)}
+.proofSection .stats{margin-top:0;padding-block:clamp(24px,3.2vw,40px);border-top:0;border-bottom:1px solid var(--bd);gap:18px}
+.proofSection .stats b{font-size:clamp(30px,3.5vw,48px);color:var(--em2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.proofSection .stats span{font-size:12.5px;line-height:1.55;text-transform:none;letter-spacing:0}
+.homeMain .sectionLead{margin-bottom:26px}
+.collectionLinks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:22px}
+.collectionLinks a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 20px;border:1px solid var(--bd);border-radius:16px;font-weight:700;transition:border-color .2s,background .2s}
+.collectionLinks a span{white-space:nowrap;color:var(--em2);font-variant-numeric:tabular-nums}
+.collectionLinks a:hover{border-color:var(--em);background:rgba(16,185,129,.06)}
+.experienceHome .backgroundExp{margin-bottom:0}
+.compactStack{padding:25px 0;margin-top:26px;gap:22px}
+.compactStack ul{font-size:clamp(17px,1.8vw,23px);gap:10px 24px}
+.cardMetrics{grid-template-columns:repeat(auto-fit,minmax(min(86px,100%),1fr));gap:7px}
+.cardMetrics>span{padding:10px 8px}
+.cardMetrics b{font-size:clamp(17px,1.65vw,24px);white-space:normal;overflow:visible;text-overflow:clip;overflow-wrap:anywhere;color:var(--em2)}
+.cardMetrics small{font-size:11px;line-height:1.4;text-transform:none;letter-spacing:0}
+.card .tags{margin-top:auto}
+.card .meta{font-size:13px}
+.card .b .mu{line-height:1.6}
+.academicCard .thumb img.ph,.academicProject .gal img.ph{object-fit:contain;background:#151c19}
+.academicCard:hover .thumb img.ph,.academicProject .gal button:hover img.ph{transform:none}
+.gal button:focus-visible,.filters button:focus-visible,.projectCollections a:focus-visible{outline:2px solid var(--em2);outline-offset:3px}
+.projectCollections a,.filters button{min-height:44px;align-content:center}
+.homeMain .backgroundSection{border-top:1px solid var(--bd)}
+@media(min-width:801px){html[dir='ltr'] .homeHero .heroBody,html[dir='rtl'] .homeHero .heroBody{padding-top:clamp(32px,4vw,64px)}}
+@media(max-width:800px){.homeHero .heroBody{padding-top:26px;gap:24px!important}.homeHero .pillars{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.proofSection .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.homeMain .sec{padding-block:44px}.homeHero .heroBody aside p{font-size:16px}.homeHero .heroArt{opacity:.65}html[dir='ltr'] .homeHero h1{font-size:clamp(42px,11.2vw,78px)}html[dir='rtl'] .homeHero h1{font-size:clamp(44px,12vw,78px)!important}.cardMetrics b{font-size:21px}}
+@media(max-width:520px){.collectionLinks{grid-template-columns:1fr}.collectionLinks a{padding:14px 15px}.homeHero .pillars{gap:10px}.homeHero .pillars div{font-size:12.5px}.proofSection .stats b{font-size:clamp(25px,7.5vw,38px)}.proofSection .stats span{font-size:12px}.homeHero .heroActions .pill{max-width:100%;white-space:normal}.cardMetrics small{font-size:10.5px}.compactStack ul{gap:10px 18px}}
+@media(prefers-reduced-motion:reduce){.collectionLinks a{transition:none}.reveal{transform:none}}
