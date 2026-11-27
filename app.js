@@ -4,7 +4,10 @@ if (top !== self) { try { top.location = self.location; } catch (e) { document.d
 
 const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $ = s => document.querySelector(s), app = $('#app');
-let SITE = {}, C = {}, DATA = [], EXP = [], mail = '', GAL = [], LBI = 0;
+let SITE = {}, C = {}, DATA = [], ACADEMIC = [], EXP = [], mail = '', GAL = [], LBI = 0;
+const projectGroup = () => location.hash.startsWith('#/projects/university') ? 'university' : 'main';
+const projectPath = p => p.academic ? '#/projects/university/' + p.id : '#/projects/' + p.id;
+const universityText = () => LANG === 'ar' ? 'المشاريع الجامعية' : 'University Projects';
 let LANG = localStorage.getItem('portfolio-lang') === 'ar' ? 'ar' : 'en';
 const UI = {
   en: {home:'Home', about:'About', projects:'Projects', contact:'Get in touch', viewProjects:'View projects', downloadResume:'Download resume', experience:'Experience', repositories:'Repositories', resumes:'Resume downloads', coreStack:'Core engineering stack', selectedWork:'Selected engineering work', featured:'Featured projects', featuredLead:'The projects that best show how I work from requirements and CAD through integration, manufacturing, and physical validation.', career:'Career', background:'Background', industry:'Industry Experience', education:'Education', certs:'Certifications & Memberships', certNav:'Certifications', languages:'Languages', moreWork:'More work', explore:'Explore additional engineering projects', allProjects:'See all projects', selected:'Selected work', archiveLead:'Robotic and electromechanical systems, from first CAD sketch to simulation, prototype, bench test, and flight test.', filter:'Filter by category', all:'All', timeline:'Timeline', role:'Role', stack:'Stack', links:'Links', github:'GitHub', demo:'Demo video', cad:'CAD files', coming:'Coming soon', overview:'Overview', features:'Key features', architecture:'System architecture', results:'Results', gallery:'Gallery', previous:'Previous', next:'Next', connect:'Let\'s connect', cta:'Building something that moves, thinks, or both?', email:'Email me', arabic:'العربية', english:'EN', top:'Back to top', learning:'Learning & Technical Exercises', viewProject:'View project', viewExperience:'View experience', experienceLead:'Industry experience and hands-on engineering work.', notFound:'Project not found', notFoundExperience:'Experience not found', backProjects:'Back to projects', backExperience:'Back to experience', moreItems:'more', openMenu:'Open menu', closeMenu:'Close menu', switchArabic:'Switch to Arabic', switchEnglish:'Switch to English', enlarge:'Enlarge', imageWord:'image', ofWord:'of', certificateWord:'certificate', musnadLabel:'Musnad-inspired mark', status:'Status', contribution:'My contribution', certAll:'All', certCredentials:'Credentials', certProfessional:'Professional Certifications', certCourses:'Courses', certFilterLabel:'Filter certificates by category', certBadgeCredential:'Credential', certBadgeProfessional:'Professional Certificate', certBadgeCourse:'Course'},
@@ -124,7 +127,7 @@ ${socials()}${langBtn()}<span class="navcta">${arrow(T('contact'), mail)}</span>
 <button class="ib st menuBtn" type="button" aria-label="${T('openMenu')}" aria-expanded="false" aria-controls="mpanel" data-menu>${ICON.menu}</button></div>
 <div class="mpanel" id="mpanel"><a href="#/">${T('home')}</a><a href="#/about" data-about>${T('about')}</a><a href="#/projects">${T('projects')}</a><a href="#/experience">${T('experience')}</a><a href="#/certifications" data-certs-link>${T('certNav')}</a>${langBtn(true)}<a class="mc" href="${esc(safeUrl(mail))}">${T('contact')}</a></div></nav>`;
 
-const card = (p, i) => `<a class="card reveal" style="transition-delay:${(i % 3) * 90}ms" href="#/projects/${esc(p.id)}">
+const card = (p, i) => `<a class="card reveal" style="transition-delay:${(i % 3) * 90}ms" href="${esc(projectPath(p))}">
 <div class="thumb">${img(p.thumbnail, p.title, p.short)}<span class="chip">${esc(p.category)}</span></div>
 <div class="b"><div class="meta mono"><span>${esc(p.year)}</span><span class="view">${T('viewProject')} &#8594;</span></div>${p.status ? `<div class="state">${esc(p.status)}</div>` : ''}<h3>${esc(p.title)}</h3>
 <p class="mu">${esc(p.tagline)}</p>${p.metrics?.length ? `<div class="cardMetrics">${p.metrics.slice(0, 2).map(m => `<span><b>${esc(m.value)}</b><small>${esc(m.label)}</small></span>`).join('')}</div>` : ''}<div class="tags">${(p.tags || []).slice(0, 4).map(t => `<span>${esc(t)}</span>`).join('')}</div></div></a>`;
@@ -216,13 +219,17 @@ ${certSection()}
 ${grp(T('languages'), (C.languages || []).map(e => it(e.name, e.level, '')).join(''))}</section>
 ${more.length ? `<section class="wrap fanWrap moreWork"><span class="k reveal">${T('moreWork')}</span><h2 class="reveal">${T('explore')}</h2><div class="fan">${more.map((p, i) => { const o = i - mid; return `<a class="reveal" href="#/projects/${esc(p.id)}" style="transform:rotateY(${-o * 11}deg) translateY(${Math.abs(o) * 14}px)">${img(p.thumbnail, p.title, p.short)}<em>${esc(p.short || p.title)}</em></a>`; }).join('')}</div>${arrow(T('allProjects'), '#/projects')}</section>` : ''}${foot()}`;
 }
-function archive(cat) {
+function archive(cat, group = projectGroup()) {
+  const pool = group === 'university' ? ACADEMIC : DATA;
   cat = cat || T('all');
-  const cats = [T('all'), ...new Set(DATA.map(p => p.category))];
+  const cats = [T('all'), ...new Set(pool.map(p => p.category))];
+  const tabs = [[ 'main', '#/projects', LANG === 'ar' ? 'المشاريع الهندسية' : 'Engineering Projects', DATA.length ], ['university', '#/projects/university', universityText(), ACADEMIC.length]];
+  const groupLabel = LANG === 'ar' ? 'أقسام المشاريع' : 'Project collections';
+  const lead = group === 'university' ? (LANG === 'ar' ? 'مختارات من الأعمال الهندسية الأكاديمية في التصميم الميكانيكي والمحاكاة والإلكترونيات خلال دراسة الميكاترونكس.' : 'Selected academic engineering studies in mechanical design, simulation and electronics completed during my Mechatronics Engineering degree.') : T('archiveLead');
   return `<header class="hero" style="min-height:0"><div class="wrap wide">${nav('projects')}<span class="k reveal" style="margin-top:clamp(36px,6vw,64px)">${T('selected')}</span><h1 class="reveal" style="font-size:clamp(56px,10vw,132px)">${T('projects')}</h1>
-<p class="mu reveal" style="max-width:52ch;margin-top:20px">${T('archiveLead')}</p></div></header>
-<section class="wrap"><div class="filters" role="group" aria-label="${T('filter')}">${cats.map(c => `<button type="button" class="${c === cat ? 'on' : ''}" aria-pressed="${c === cat}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
-<div class="grid">${DATA.filter(p => cat === T('all') || p.category === cat).map(card).join('')}</div></section><div style="height:clamp(56px,8vw,96px)"></div>${foot()}`;
+<p class="mu reveal" style="max-width:52ch;margin-top:20px">${esc(lead)}</p></div></header>
+<section class="wrap"><div class="filters projectCollections" role="group" aria-label="${esc(groupLabel)}">${tabs.map(([key,href,label,count]) => `<a class="${key === group ? 'on' : ''}" href="${href}" ${key === group ? 'aria-current="page"' : ''}>${esc(label)} <span>${count}</span></a>`).join('')}</div><div class="filters" role="group" aria-label="${T('filter')}">${cats.map(c => `<button type="button" class="${c === cat ? 'on' : ''}" aria-pressed="${c === cat}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}</div>
+<div class="grid">${pool.filter(p => cat === T('all') || p.category === cat).map(card).join('')}</div></section><div style="height:clamp(56px,8vw,96px)"></div>${foot()}`;
 }
 
 function experienceArchive() {
@@ -253,19 +260,21 @@ ${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="
 <div class="pn" style="grid-template-columns:1fr"><a href="#/experience"><small class="mu">&#8592; ${T('backExperience')}</small><h3>${T('experience')}</h3></a></div></main>${foot()}</div>`;
 }
 
-function detail(id) {
-  const i = DATA.findIndex(p => p.id === id), p = DATA[i];
+function detail(id, group = 'main') {
+  const pool = group === 'university' ? ACADEMIC : DATA;
+  const back = group === 'university' ? '#/projects/university' : '#/projects';
+  const i = pool.findIndex(p => p.id === id), p = pool[i];
   if (!p) return `<div class="wrap wide">${nav('projects')}<h2 style="margin:80px 0 24px">${T('notFound')}</h2>${arrow(T('backProjects'), '#/projects')}</div>`;
   const GALI = normalizeGallery(p.gallery, p.galleryCaptions); GAL = GALI.map(g => g.src);
   const A = accentOf(p);
-  const prev = DATA[(i - 1 + DATA.length) % DATA.length], next = DATA[(i + 1) % DATA.length];
+  const prev = pool[(i - 1 + pool.length) % pool.length], next = pool[(i + 1) % pool.length];
   const links = [[T('github'), p.githubUrl], [T('demo'), p.videoUrl], [T('cad'), p.cadUrl]].filter(l => l[1]).map(l => `<a href="${esc(safeUrl(l[1]))}" target="_blank" rel="noopener noreferrer">${l[0]}</a>`).join('') || `<span class="mu">${T('coming')}</span>`;
   const sec = (h, body) => body ? `<div class="cols"><h3 class="reveal">${h}</h3><div>${body}</div></div>` : '';
   const stackPreview = (p.tags || []).slice(0, 5).join(', ') + ((p.tags || []).length > 5 ? ` +${p.tags.length - 5} ${T('moreItems')}` : '');
   return `<div class="proj" style="--acc:${A.acc};--acc-soft:${A.soft};--acc-bd:${A.bd};--acc-glow:${A.glow}">
 <div class="cover">${img(p.cover || p.thumbnail, p.title, p.short, p.coverPos)}<div class="wrap wide navwrap">${nav('projects')}</div>
 <div class="ttl wrap wide"><span class="k">${catIcon(p.category)}${esc(p.category)}</span><h1 style="font-size:clamp(42px,8vw,108px)">${esc(p.title)}</h1></div></div>
-<main class="wrap"><p class="mu" style="font-size:clamp(18px,1.6vw,22px);max-width:60ch;margin-top:32px">${esc(p.tagline)}</p>${p.status ? `<div class="statusWrap"><span class="statusBadge">${esc(p.status)}</span></div>` : ''}
+<main class="wrap">${p.academic ? `<div style="padding-top:28px">${arrow(universityText(), back, 'o')}</div>` : ''}<p class="mu" style="font-size:clamp(18px,1.6vw,22px);max-width:60ch;margin-top:32px">${esc(p.tagline)}</p>${p.status ? `<div class="statusWrap"><span class="statusBadge">${esc(p.status)}</span></div>` : ''}
 <div class="bar"><div><small>${T('timeline')}</small>${esc(p.timeline || p.year)}</div><div><small>${T('role')}</small>${esc(p.role || '—')}</div><div><small>${T('stack')}</small>${esc(stackPreview)}</div><div><small>${T('links')}</small>${links}</div></div>
 ${(p.tags || []).length > 5 ? `<div class="cloud">${p.tags.map(t => `<span>${esc(t)}</span>`).join('')}</div>` : ''}
 ${sec(T('overview'), richText(p.summary))}
@@ -274,7 +283,7 @@ ${sec(T('features'), p.features?.length ? `<ul>${p.features.map(x => `<li>${esc(
 ${sec(T('architecture'), richText(p.architecture))}
 ${sec(T('results'), richText(p.results) + (p.metrics?.length ? `<div class="metrics" style="margin-top:${p.results ? '24px' : '0'}">${p.metrics.map(m => `<div><b>${esc(m.value)}</b><span>${esc(m.label)}</span></div>`).join('')}</div>` : ''))}
 ${GALI.length ? `<div class="cols" style="grid-template-columns:1fr"><h3 class="reveal">${T('gallery')}</h3><div class="gal">${GALI.map((g, gi) => `<figure class="gitem reveal" style="transition-delay:${(gi % 3) * 80}ms"><button type="button" data-gi="${gi}" aria-label="${T('enlarge')} ${T('imageWord')} ${gi + 1} ${T('ofWord')} ${GALI.length}">${img(g.src, p.title, '', g.pos)}</button>${g.caption ? `<figcaption>${esc(g.caption)}</figcaption>` : ''}</figure>`).join('')}</div></div>` : ''}
-<div class="pn"><a href="#/projects/${esc(prev.id)}"><small class="mu">&#8592; ${T('previous')}</small><h3>${esc(prev.title)}</h3></a><a href="#/projects/${esc(next.id)}"><small class="mu">${T('next')} &#8594;</small><h3>${esc(next.title)}</h3></a></div></main>${foot()}</div>`;
+<div class="pn"><a href="${esc(projectPath(prev))}"><small class="mu">&#8592; ${T('previous')}</small><h3>${esc(prev.title)}</h3></a><a href="${esc(projectPath(next))}"><small class="mu">${T('next')} &#8594;</small><h3>${esc(next.title)}</h3></a></div></main>${foot()}</div>`;
 }
 
 /* ---------- routing ---------- */
@@ -289,6 +298,8 @@ function render() {
   else if (h[0] === 'certifications') { app.innerHTML = home(); document.title = SITE.name + ' | ' + T('certs'); scrollTarget = 'certifications'; }
   else if (h[0] === 'experience' && h[1]) { const id = decodeURIComponent(h[1]); app.innerHTML = experienceDetail(id); document.title = (EXP.find(e => e.id === id)?.title || T('experience')) + ' | ' + SITE.name; }
   else if (h[0] === 'experience') { app.innerHTML = experienceArchive(); document.title = T('experience') + ' | ' + SITE.name; }
+  else if (h[0] === 'projects' && h[1] === 'university' && h[2]) { const id = decodeURIComponent(h[2]); app.innerHTML = detail(id, 'university'); document.title = (ACADEMIC.find(p => p.id === id)?.title || universityText()) + ' | ' + SITE.name; }
+  else if (h[0] === 'projects' && h[1] === 'university') { app.innerHTML = archive(undefined, 'university'); document.title = universityText() + ' | ' + SITE.name; }
   else if (h[0] === 'projects' && h[1]) { const id = decodeURIComponent(h[1]); app.innerHTML = detail(id); document.title = (DATA.find(p => p.id === id)?.title || 'Project') + ' | ' + SITE.name; }
   else if (h[0] === 'projects') { app.innerHTML = archive(); document.title = T('projects') + ' | ' + SITE.name; }
   else { app.innerHTML = home(); document.title = SITE.name + ' | ' + SITE.role; }
@@ -384,7 +395,8 @@ let draft = null;
 if (location.search.includes('preview')) try { draft = JSON.parse(localStorage.getItem('draft')); } catch (e) { }
 function loadContent(){
   const source = draft ? Promise.resolve(draft) : fetch(LANG === 'ar' ? 'content.ar.json' : 'content.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
-  source.then(c => { C = c; SITE = c.profile; DATA = c.projects || []; EXP = c.experience || []; mail = 'mailto:' + SITE.email; applyLangMeta(); renderStick(); render(); })
+  const academicSource = fetch('university-projects.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).catch(() => ({}));
+  Promise.all([source, academicSource]).then(([c, academic]) => { C = c; SITE = c.profile; DATA = c.projects || []; ACADEMIC = academic[LANG] || []; EXP = c.experience || []; mail = 'mailto:' + SITE.email; applyLangMeta(); renderStick(); render(); })
     .catch(() => { app.innerHTML = `<div class="wrap" style="padding:80px 0"><h2>Could not load portfolio content</h2></div>`; });
 }
 loadContent();
